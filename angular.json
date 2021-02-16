@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "projeto-devs"
+  "defaultProject": "projeto-devs",
+  "cli": {
+    "analytics": false
+  }
 }
