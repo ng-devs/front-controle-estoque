@@ -1,0 +1,21 @@
+<mat-toolbar class="header mat-elevation-z4">
+  <span>
+    <a routerLink="/dashboard">
+      <img src="assets/images/logo.png" class="logo" alt="logo" >
+    </a>
+  </span>
+
+  <div class="spacer"></div>
+    <a mat-button routerLink="/dashboard" routerLinkActive="active" >Dashboard</a>
+    <a mat-button routerLink="/configuracoes" routerLinkActive="active" >Configurações</a>
+    <a mat-button routerLink="/vendas" routerLinkActive="active" r>Vendas +</a>
+    <a mat-button routerLink="/cadastros" routerLinkActive="active" [matMenuTriggerFor]="cadastros">Cadastros
+      <img src="assets/images/Rectangle 49.png">
+    </a>
+      <mat-menu #cadastros="matMenu">
+        <a mat-menu-item routerLink="/cadastros/categoria" routerLinkActive="active">Caterorias</a>
+        <a mat-menu-item routerLink="/cadastros/produtos" routerLinkActive="active">Produtos</a>
+        <a mat-menu-item routerLink="/cadastros/formaspagamento" routerLinkActive="active">Formas de Pagamento</a>
+      </mat-menu>
+
+</mat-toolbar>
