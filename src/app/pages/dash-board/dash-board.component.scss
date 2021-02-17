@@ -1,0 +1,22 @@
+.dashboard {
+  padding: 39px 45px 67px 43px;
+
+  &__title {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  &__divider {
+    margin-bottom: 45px;
+  }
+
+  &__cards-container {
+    display: flex;
+    column-gap: 37px;
+  }
+}
