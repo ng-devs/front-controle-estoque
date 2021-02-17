@@ -1,0 +1,39 @@
+// Colors principais header e menu
+$primary-color:#7749F8;
+$menu-color:#F2F2F2;
+$hover-color: #333;
+
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: $primary-color;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $menu-color;
+
+    &:hover{
+      color:$hover-color;
+    }
+
+    &.active{
+      color: $hover-color;
+    }
+
+    img{
+      margin-left: 5px;
+  }
+    }
+
+  .logo {
+    max-height: 40px;
+    margin-left: 10px;
+  }
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
