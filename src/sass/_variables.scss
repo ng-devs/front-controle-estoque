@@ -4,7 +4,7 @@
 // Font
 // ==========================================================================
 
-$font-primary: "Roboto", sans-serif;
+$font-primary: "Inter", sans-serif;
 $font-secondary: Arial, Helvetica, sans-serif;
 
 // ==========================================================================
@@ -27,5 +27,5 @@ $z-indexes: (
   "overlay": 300,
   "dropdown": 200,
   "default": 1,
-  "below": -1,
+  "below": -1
 );
