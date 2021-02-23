@@ -12,10 +12,17 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon'
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { GridComponent } from './components/grid/grid.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [AppComponent, DashBoardComponent, CardComponent, HeaderComponent],
+  declarations: [AppComponent, DashBoardComponent, CardComponent, HeaderComponent, GridComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +33,13 @@ import { MatIconModule } from '@angular/material/icon'
     MatMenuModule,
     MatSelectModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
