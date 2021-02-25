@@ -1,0 +1,68 @@
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.table-paginator {
+  width: 100%;
+}
+
+legend {
+  font-size: 14px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+  padding: 0;
+  width: 100%;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 2rem;
+}
+
+.card .card-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+::ng-deep .mat-card-header > .mat-card-header-text {
+  width: 100%;
+  margin: 0;
+}
+
+::ng-deep .mat-paginator-page-size-select {
+  width: 100px !important;
+}
+
+.add-mobile {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+fieldset ~ fieldset {
+  margin-top: 15px;
+}
+
+.fields article + article {
+  margin-top: 15px;
+}
+
+.action-search {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}

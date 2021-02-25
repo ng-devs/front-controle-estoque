@@ -1,0 +1,95 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title class="card-title"
+      ><span>Produto</span>
+      <div>
+        <button mat-button fxHide.xs="true" (click)="novo()"><mat-icon>add</mat-icon>&nbsp;Novo</button>
+        <button
+          fxHide.gt-xs="true"
+          mat-mini-fab
+          color="primary"
+          (click)="novo()"
+          aria-label="Adicionar novo produto"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>Gestão do layout</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <fieldset *ngIf="filtro" [formGroup]="filtro">
+      <legend class="legend-filter"><mat-icon>filter_alt</mat-icon>&nbsp;Filtro</legend>
+      <section class="fields">
+        <article fxLayout="row" fxLayout.xs="column" fxLayoutGap.gt-xs="20px">
+          <mat-form-field fxFlex="100" fxFlex.gt-xs="calc(50%-10px)">
+            <input matInput autofocus placeholder="Código" formControlName="id" />
+            <mat-error>
+              <span>Informe somente números</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="100" fxFlex.gt-xs="calc(50%-10px)">
+            <input matInput autofocus placeholder="Nome" formControlName="nome" />
+          </mat-form-field>
+        </article>
+        <article class="action-search">
+          <button mat-button mat-raised-button secondary (click)="buscar()">Pesquisar</button>
+        </article>
+      </section>
+    </fieldset>
+    <fieldset
+      [ngStyle]="{ display: paginator?.length && (dataSource.loading$ | async) === false ? 'block' : 'none' }"
+    >
+      <legend><mat-icon>list_alt</mat-icon>&nbsp;Listagem</legend>
+      <table class="table-paginator" mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Código</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef fxHide.xs="true">Categoria</th>
+          <td mat-cell *matCellDef="let element" fxHide.xs="true">{{ element.categoria }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="quantidade">
+          <th mat-header-cell *matHeaderCellDef fxHide.xs="true">Quantidade</th>
+          <td mat-cell *matCellDef="let element" fxHide.xs="true">{{ element.quantidade }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" style="text-align: right">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Operações disponíveis">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button (click)="editar(element.id)" mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button (click)="excluir(element)" mat-menu-item>
+                <mat-icon>delete</mat-icon>
+                <span>Excluir</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"> </mat-paginator>
+    </fieldset>
+  </mat-card-content>
+</mat-card>
