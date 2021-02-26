@@ -12,10 +12,21 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+
+import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
+import { EditCategoriaComponent } from './pages/cadastros/categoria/edit-categoria/edit-categoria.component';
+import { DeleteCategoriaComponent } from './pages/cadastros/categoria/delete-categoria/delete-categoria.component';
+import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categoria/crud-categoria.component';
+import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
+import { HeaderCategoriaComponent } from './pages/cadastros/categoria/header-categoria/header-categoria.component';
 
 @NgModule({
-  declarations: [AppComponent, DashBoardComponent, CardComponent, HeaderComponent],
+  declarations: [AppComponent, DashBoardComponent, CardComponent, HeaderComponent, CreateCategoriaComponent, EditCategoriaComponent, DeleteCategoriaComponent, CrudCategoriaComponent, ReadCategoriaComponent, HeaderCategoriaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +37,10 @@ import { MatIconModule } from '@angular/material/icon'
     MatMenuModule,
     MatSelectModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,17 @@
+<app-header-categoria></app-header-categoria>
+
+<mat-card class="cadcategoria">
+  <mat-card-title><strong>Editar Categoria</strong></mat-card-title>
+  <form name="login"method="post" action="#" class="login">
+      <label class="idcat">ID <br>
+       <input class="id" name="id" type="number" placeholder="ID" disabled>
+      </label>
+
+      <label class="nomecat">Nome da Categoria: <br>
+       <input class="nome" name="nome" type="text" placeholder="Nome">
+      </label>
+
+  </form>
+   <button mat-raised-button class="salvar"> Salvar  </button>
+  <button  mat-raised-button routerLink="/cadastros/categoria"> Cancelar </button>
+</mat-card>

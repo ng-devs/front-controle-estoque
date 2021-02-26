@@ -1,0 +1,26 @@
+$primary-color:#7749F8;
+$menu-color:#F2F2F2;
+$hover-color: #333;
+$font-size: 16px;
+
+.info{
+  display: flex;
+  margin-top: 70px;
+  background-color: #f3f3f3;
+  width: auto;
+  height: 50px;
+  align-items: center;
+  font-size: $font-size;
+}
+
+.cadastros{
+  color:$primary-color;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.categoria{
+  color:#686868;
+  margin-left: 5px;
+
+}
