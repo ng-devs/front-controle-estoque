@@ -1,0 +1,31 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.add-button {
+  padding: rem(10 16);
+  @include flex-center;
+  font-family: $font-primary;
+  height: rem(39);
+  font-size: rem(16);
+  margin-top: $global-module-size;
+  background-color: $color-primary;
+  color: $color-text-on-primary;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  ::ng-deep .mat-button-wrapper {
+    @include flex-center;
+  }
+
+  &__icon {
+    font-size: rem(16);
+    font-weight: bold;
+    @include size(16);
+    margin-right: rem(5);
+  }
+}
