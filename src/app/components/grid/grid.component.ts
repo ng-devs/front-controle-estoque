@@ -11,15 +11,13 @@ import { ProdutoService } from './produto.service';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit, AfterViewInit {
-  constructor(private produtoService: ProdutoService) {}
-  ngAfterViewInit(): void {
-    this.buscar();
-  }
 
   filtro: FormGroup;
   dataSource: CustomDataSource<ProdutoListItem, ProdutoFilterProps>;
   displayedColumns: string[] = ['id', 'nome', 'categoria', 'quantidade'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+
+  constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
     this.dataSource = new CustomDataSource<ProdutoListItem, ProdutoFilterProps>(
@@ -30,6 +28,10 @@ export class GridComponent implements OnInit, AfterViewInit {
       id: new FormControl('', [Validators.pattern(/\d{1,}/g)]),
       nome: new FormControl('')
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.buscar();
   }
 
   buscar() {
