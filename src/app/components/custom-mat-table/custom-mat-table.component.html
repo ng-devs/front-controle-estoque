@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="tableData" class="mat-elevation-z0">
+  <ng-container
+    [matColumnDef]="tableData"
+    *ngFor="let tableData of objectKeys(displayedColumns)"
+  >
+    <th mat-header-cell *matHeaderCellDef>
+      {{ displayedColumns[tableData] }}
+    </th>
+    <div>
+      <td mat-cell *matCellDef="let element">{{ element[tableData] }}</td>
+    </div>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="objectKeys(displayedColumns)"></tr>
+  <tr mat-row *matRowDef="let row; columns: objectKeys(displayedColumns)"></tr>
+</table>
