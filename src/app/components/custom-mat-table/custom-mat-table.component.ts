@@ -5,8 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './custom-mat-table.component.html',
   styleUrls: ['./custom-mat-table.component.scss'],
 })
-export class CustomMatTableComponent implements OnInit {
-  @Input() tableData: any[];
+export class CustomMatTableComponent<T> implements OnInit {
+  @Input() tableData: T[];
   @Input() displayedColumns: any;
   objectKeys = Object.keys;
 
