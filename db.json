@@ -1,0 +1,3 @@
+{
+  "produtos": [{ "id": 1, "nome": "Caneta", "categoria": "Papelaria", "quantidade": 200 }]
+}

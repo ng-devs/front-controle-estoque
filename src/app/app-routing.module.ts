@@ -1,37 +1,14 @@
-import { DashBoardComponent } from './pages/dash-board/dash-board.component';
-import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categoria/crud-categoria.component';
-import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
-import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
-import { DeleteCategoriaComponent } from './pages/cadastros/categoria/delete-categoria/delete-categoria.component';
-import { EditCategoriaComponent } from './pages/cadastros/categoria/edit-categoria/edit-categoria.component';
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashBoardComponent } from './pages/dash-board/dash-board.component';
+import { ProductsComponent } from './pages/cadastros/products/products.component';
+import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
 
 const routes: Routes = [
-  { path : '', redirectTo: '/dashboard', pathMatch:"full" },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashBoardComponent },
-
-  { path: 'cadastros/categoria', component: CrudCategoriaComponent,
-      children: [
-        {
-          path: '',
-          component: ReadCategoriaComponent,
-        },
-        {
-          path: 'create',
-          component: CreateCategoriaComponent,
-        },
-        {
-          path: 'edit/:id',
-          component: EditCategoriaComponent,
-        },
-        {
-          path: 'delete/:id',
-          component: DeleteCategoriaComponent,
-        }
-      ]
-    }
+  { path: 'cadastros/produtos', component: ProductsComponent },
+  { path: 'cadastros/categoria', component: ReadCategoriaComponent },
 ];
 
 @NgModule({

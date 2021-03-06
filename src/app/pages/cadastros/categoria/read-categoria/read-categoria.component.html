@@ -1,10 +1,10 @@
 <app-header-categoria></app-header-categoria>
 
 <div class="container">
-  <button class="addcat" mat-raised-button routerLink="create">+ Categoria</button>
+  <button class="addcat" mat-raised-button routerLink="create/">+ Categoria</button>
 </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+<table mat-table  [dataSource]= "dataSource" class="mat-elevation-z0">
 
   <!-- Nome Column -->
   <ng-container matColumnDef="position">
@@ -20,17 +20,35 @@
 
   <!-- action Column -->
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Ações </th>
-    <td mat-cell *matCellDef= "let element">
-      <a routerLink="edit/{{ element.position }}">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef= "let element; let i = index" >
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="edit(element)">
+            <mat-icon class="menu-icon">edit</mat-icon>
+            <span>Editar</span>
+          </button>
+          <button mat-menu-item (click)="alertConfirmation()">
+            <mat-icon class="menu-icon">delete</mat-icon>
+            <span>Deletar</span>
+          </button>
+        </mat-menu>
+
+
+      <!-- <a routerLink="edit/">
         <i class="material-icons edit">edit</i>
       </a>
       <a routerLink="cadastros/categorias" (click)="alertConfirmation()">
         <i class="material-icons delete">delete</i>
-      </a>
+      </a> -->
     </td>
   </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+
+

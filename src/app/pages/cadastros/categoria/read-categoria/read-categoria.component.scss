@@ -3,9 +3,11 @@ $menu-color:#F2F2F2;
 $hover-color: #333;
 $font-size: 16px;
 
+
 button.addcat{
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 10px;
+  margin-left: 20px;
   background-color: $primary-color;
   color: $menu-color;
   font-size: $font-size
@@ -16,8 +18,10 @@ button{
 }
 
 table {
-  width: 100%;
+  width: 95%;
+  margin-left: 20px;
   margin-top: 15px;
+  border-top: 1px solid #dee2e6;
 }
 
 i.edit{

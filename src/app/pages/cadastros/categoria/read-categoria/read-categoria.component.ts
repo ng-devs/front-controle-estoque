@@ -1,9 +1,12 @@
-import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/model/categoria';
 import Swal from 'sweetalert2';
 
+export interface ProductListItem {
+  position: number;
+  name: string;
+}
 
 const ELEMENT_DATA: Product[] = [
   {position: 1, name: 'Papelaria'},
@@ -27,29 +30,23 @@ export class ReadCategoriaComponent implements OnInit {
 
   }
 
+  add() {
+    alert('adding test');
+  }
+
+  edit(item: ProductListItem) {
+    alert(`Voce editou o produto ${item.position} - ${item.name}`);
+  }
+
   alertConfirmation(){
     Swal.fire({
-      title: 'Excluir Categoria x',
-      text: 'Deseja realmente excluir a categoria x?',
+      title: 'Excluir Categoria ',
+      text: 'Deseja realmente excluir a categoria ?',
       showCancelButton: true,
       confirmButtonColor: '#7749F8',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Fechar'
     })
-
-    /*.then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Excluída!',
-          'Product removed successfully.',
-        )
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelado',
-          'Retornando a lista de Categorias)',
-        )
-      }
-    }) */
   }
 }
 

@@ -15,6 +15,7 @@ $global-max-width: rem(1440);
 $global-font-size: rem(18);
 $global-line-height: 1.5;
 $global-radius: rem(10);
+$global-horizontal-padding: rem(43);
 $global-module-size: rem(25);
 
 // ==========================================================================
@@ -27,5 +28,5 @@ $z-indexes: (
   "overlay": 300,
   "dropdown": 200,
   "default": 1,
-  "below": -1
+  "below": -1,
 );

@@ -4,6 +4,8 @@ $color-secondary: #{"var(--color-secondary)"};
 $color-background: #{"var(--color-background)"};
 $color-surface: #{"var(--color-surface)"};
 
+$color-breadcrumb-item: #{"var(--color-breadcrumb-item)"};
+
 $color-text-on-background: #{"var(--color-text-on-background)"};
 $color-text-on-surface: #{"var(--color-text-on-surface)"};
 $color-text-on-primary: #{"var(--color-text-on-primary)"};
@@ -24,6 +26,7 @@ $project-colors: (
   "secondary": #6c757d,
   "background": #ffffff,
   "surface": #f8f9fa,
+  "breadcrumb-item": #68717a,
   "text-on-background": white,
   "text-on-surface": #65686c,
   "text-on-primary": #f2f2f2,
@@ -34,7 +37,7 @@ $project-colors: (
   "title-on-secondary": #152536,
   "card-header": #f8f9fa,
   "success": #28a745,
-  "danger": #cf6679
+  "danger": #cf6679,
 );
 
 $project-colors-theme-dark: (
@@ -52,5 +55,5 @@ $project-colors-theme-dark: (
   "title-on-secondary": #152536,
   "card-header": #f8f9fa,
   "success": #28a745,
-  "danger": #cf6679
+  "danger": #cf6679,
 );
