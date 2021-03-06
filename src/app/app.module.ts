@@ -6,12 +6,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,10 +22,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { CardComponent } from './components/card/card.component';
+import { CustomMatTableComponent } from './components/custom-mat-table/custom-mat-table.component';
 import { GridComponent } from './components/grid/grid.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 registerLocaleData(localePt);
 
@@ -36,6 +40,8 @@ registerLocaleData(localePt);
     GridComponent,
     ProductsComponent,
     AddButtonComponent,
+    CustomMatTableComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +60,8 @@ registerLocaleData(localePt);
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    MatSortModule,
+    MatDialogModule,
   ],
   providers: [
     {

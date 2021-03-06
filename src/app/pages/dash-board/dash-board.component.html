@@ -8,15 +8,31 @@
       [value]="50"
       [btnBgColor]="'#17A2B8'"
       [contentColor]="'#17A2B8'"
+      [btnText]="'Ver detalhes'"
+      (btnEvent)="showSalesDetails()"
     ></card>
     <card
       [title]="'Produtos para repor'"
       [value]="12"
       [btnBgColor]="'#EB5757'"
+      [btnText]="'Ver detalhes'"
       [contentColor]="'#DC3545'"
+      (btnEvent)="showProductsStockDetails()"
     ></card>
   </div>
 </div>
-<app-grid>
+<app-grid> </app-grid>
 
-</app-grid>
+<modal [title]="'Vendas do mês (01/21)'" #salesRef>
+  <custom-mat-table
+    [displayedColumns]="salesColumns"
+    [tableData]="sales"
+  ></custom-mat-table>
+</modal>
+
+<modal [title]="'Produtos para repor'" #stockRef>
+  <custom-mat-table
+    [displayedColumns]="stockColumns"
+    [tableData]="productsStock"
+  ></custom-mat-table>
+</modal>
