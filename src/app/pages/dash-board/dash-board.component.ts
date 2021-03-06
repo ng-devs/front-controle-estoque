@@ -1,20 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { PRODUCTS_STOCK_MOCK, SALES_MOCK } from 'src/app/mock/mocks';
-import { ProductStockListItem, SaleListItem } from 'src/app/models';
-
-export type TableColumn<T> = {
-  [Key in keyof T]: string;
-};
+import { ProductStockListItem, SaleListItem, TableColumn } from 'src/app/models';
 
 @Component({
   templateUrl: './dash-board.component.html',
   styleUrls: ['./dash-board.component.scss'],
 })
 export class DashBoardComponent implements OnInit {
-  constructor() {}
-
   productsStock = PRODUCTS_STOCK_MOCK;
+  sales = SALES_MOCK;
 
   stockColumns: TableColumn<ProductStockListItem> = {
     id: '#',
@@ -22,7 +17,6 @@ export class DashBoardComponent implements OnInit {
     quantity: 'Quantidade',
   };
 
-  sales = SALES_MOCK;
   salesColumns: TableColumn<SaleListItem> = {
     id: '#',
     date: 'Data',
