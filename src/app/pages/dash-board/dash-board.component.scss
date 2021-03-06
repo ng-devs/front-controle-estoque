@@ -1,6 +1,11 @@
-@import "functions";
+@import "colors";
 @import "variables";
 @import "mixins";
+@import "functions";
+
+// ::ng-deep .mat-dialog-container {
+//   padding: 24px 0 !important;
+// }
 
 .dashboard {
   @include default-page-padding;

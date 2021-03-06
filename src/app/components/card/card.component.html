@@ -5,8 +5,13 @@
   </header>
   <div class="card__body">
     <span class="card__content" [ngStyle]="{ color: contentColor }">{{ value }}</span>
-    <button [ngStyle]="{ 'background-color': btnBgColor }" class="card__button" mat-raised-button>
-      Ver detalhes
+    <button
+      (click)="btnEvent.emit()"
+      [ngStyle]="{ 'background-color': btnBgColor }"
+      class="card__button"
+      mat-raised-button
+    >
+      {{ btnText }}
     </button>
   </div>
 </div>

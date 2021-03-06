@@ -1,24 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export const enum Category {
-  Papelaria,
-  Maquiagem,
-  Utilidades,
-}
-
-export interface ProductListItem {
-  id: number;
-  name: string;
-  category: Category;
-  quantity: number;
-  price: number;
-}
-
-export const PRODUCTS_MOCK: ProductListItem[] = [
-  { id: 1, name: 'Estojo', category: Category.Papelaria, quantity: 300, price: 3.5 },
-  { id: 2, name: 'Sombra', category: Category.Maquiagem, quantity: 200, price: 10 },
-  { id: 3, name: 'Carteira', category: Category.Utilidades, quantity: 155, price: 30 },
-];
+import { PRODUCTS_SOLD_MOCK } from 'src/app/mock/mocks';
+import { ProductSoldListItem } from 'src/app/models/product-sold-list-item';
 
 @Component({
   templateUrl: './products.component.html',
@@ -27,7 +9,7 @@ export const PRODUCTS_MOCK: ProductListItem[] = [
 export class ProductsComponent implements OnInit {
   constructor() {}
   displayedColumns: string[] = ['id', 'name', 'category', 'quantity', 'price', 'actions'];
-  dataSource = PRODUCTS_MOCK;
+  dataSource = PRODUCTS_SOLD_MOCK;
 
   ngOnInit(): void {}
 
@@ -35,13 +17,13 @@ export class ProductsComponent implements OnInit {
     alert('adding test');
   }
 
-  edit(item: ProductListItem) {
+  edit(item: ProductSoldListItem) {
     alert(`Voce editou o produto ${item.id} - ${item.name}`);
   }
-  delete(item: ProductListItem) {
+  delete(item: ProductSoldListItem) {
     alert(`Voce deletou o produto ${item.id} - ${item.name}`);
   }
-  addQuantity(item: ProductListItem) {
+  addQuantity(item: ProductSoldListItem) {
     alert(`Voce adicionou uma quantidade ao produto ${item.id} - ${item.name}`);
   }
 }
