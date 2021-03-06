@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PRODUCTS_SOLD_MOCK } from 'src/app/mock/mocks';
-import { ProductSoldListItem } from 'src/app/models/product-sold-list-item';
+import { Action, ActionEvent, ProductSoldListItem, TableColumn } from 'src/app/models';
 
 @Component({
   templateUrl: './products.component.html',
@@ -8,13 +8,45 @@ import { ProductSoldListItem } from 'src/app/models/product-sold-list-item';
 })
 export class ProductsComponent implements OnInit {
   constructor() {}
-  displayedColumns: string[] = ['id', 'name', 'category', 'quantity', 'price', 'actions'];
+
   dataSource = PRODUCTS_SOLD_MOCK;
+  productColumns: TableColumn<ProductSoldListItem> = {
+    id: '#',
+    name: 'Nome',
+    category: 'Categoria',
+    quantity: 'Quantidade',
+    price: 'Preço',
+  };
+
+  customActions: Action[] = [
+    {
+      buttonText: 'Adicionar Quantidade',
+      iconName: 'add',
+      eventName: 'add',
+    },
+  ];
 
   ngOnInit(): void {}
 
+  handleActions(actionEvent: ActionEvent<ProductSoldListItem>) {
+    switch (actionEvent.eventName) {
+      case 'add':
+        this.add();
+        break;
+      case 'edit':
+        this.edit(actionEvent.item);
+        break;
+      case 'delete':
+        this.delete(actionEvent.item);
+        break;
+
+      default:
+        throw new Error('action não mapeada');
+    }
+  }
+
   add() {
-    alert('adding test');
+    alert('Item adicionado');
   }
 
   edit(item: ProductSoldListItem) {
@@ -23,7 +55,7 @@ export class ProductsComponent implements OnInit {
   delete(item: ProductSoldListItem) {
     alert(`Voce deletou o produto ${item.id} - ${item.name}`);
   }
-  addQuantity(item: ProductSoldListItem) {
-    alert(`Voce adicionou uma quantidade ao produto ${item.id} - ${item.name}`);
+  addQuantity(item?: ProductSoldListItem) {
+    alert(`Voce adicionou uma quantidade ao produto ${item?.id} - ${item?.name}`);
   }
 }

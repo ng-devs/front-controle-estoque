@@ -30,6 +30,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { GenericListComponent } from './components/generic-list/generic-list.component';
 
 registerLocaleData(localePt);
 
@@ -46,6 +47,7 @@ registerLocaleData(localePt);
     AddButtonComponent,
     CustomMatTableComponent,
     ModalComponent,
+    GenericListComponent,
   ],
   imports: [
     BrowserModule,
