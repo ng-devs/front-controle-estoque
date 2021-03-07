@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/model/categoria';
+import { Product } from 'src/app/models/categoria';
 import Swal from 'sweetalert2';
 
 export interface ProductListItem {

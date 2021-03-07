@@ -1,4 +1,3 @@
-import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import  localePt from '@angular/common/locales/pt';
@@ -20,13 +19,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
-import { HeaderCategoriaComponent } from './pages/cadastros/categoria/header-categoria/header-categoria.component';
 import { CardComponent } from './components/card/card.component';
 import { GridComponent } from './components/grid/grid.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
-
+import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categoria/crud-categoria.component';
+import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
+import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
 registerLocaleData(localePt);
 
 @NgModule({
@@ -34,12 +34,13 @@ registerLocaleData(localePt);
     AppComponent,
     DashBoardComponent,
     ReadCategoriaComponent,
-    HeaderCategoriaComponent,
     CardComponent,
     HeaderComponent,
     GridComponent,
     ProductsComponent,
     AddButtonComponent,
+    CreateCategoriaComponent,
+    CrudCategoriaComponent,
   ],
   imports: [
     BrowserModule,
