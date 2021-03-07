@@ -1,0 +1,46 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+$btn-color: #6c757d;
+
+.modal {
+  min-width: 763px;
+
+  &__header {
+  }
+  &__title {
+    font-family: $font-primary;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  &__body {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 2px solid #dee2e6;
+  }
+
+  &__footer {
+    margin-top: 20px;
+
+    &__btn {
+      float: right;
+      font-family: $font-primary;
+      font-weight: bold;
+      font-size: 16px;
+      width: 117px;
+      height: 50px;
+      border-radius: 4px;
+      color: white;
+      background-color: $btn-color;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
