@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PRODUCTS_SOLD_MOCK } from 'src/app/mock/mocks';
-import { Action, ActionEvent, ProductSoldListItem, TableColumn } from 'src/app/models';
+import { Action, ActionEvent, ProductSoldListItem, TableColumns } from 'src/app/models';
 
 @Component({
   templateUrl: './products.component.html',
@@ -10,7 +10,7 @@ export class ProductsComponent implements OnInit {
   constructor() {}
 
   dataSource = PRODUCTS_SOLD_MOCK;
-  productColumns: TableColumn<ProductSoldListItem> = {
+  productColumns: TableColumns<ProductSoldListItem> = {
     id: '#',
     name: 'Nome',
     category: 'Categoria',
@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
   handleActions(actionEvent: ActionEvent<ProductSoldListItem>) {
     switch (actionEvent.eventName) {
       case 'add':
-        this.add();
+        this.addQuantity(actionEvent.item);
         break;
       case 'edit':
         this.edit(actionEvent.item);
@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
   }
 
   add() {
-    alert('Item adicionado');
+    alert(`Item adicionado `);
   }
 
   edit(item: ProductSoldListItem) {
