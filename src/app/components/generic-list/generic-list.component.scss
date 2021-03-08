@@ -1,0 +1,27 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+table {
+  border-top: 1px solid #dee2e6;
+  margin-top: rem(22);
+  width: 100%;
+
+  ::ng-deep .mat-header-row th {
+    border-bottom: 2px solid #dee2e6 !important;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-size: 16px;
+    color: black;
+  }
+
+  .id-cell {
+    font-size: rem(16);
+    font-weight: bold;
+  }
+}
+
+.menu-icon {
+  color: black;
+}
