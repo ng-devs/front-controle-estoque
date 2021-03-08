@@ -1,0 +1,20 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.breadcrumb {
+  color: $color-breadcrumb-item;
+  background-color: $color-surface;
+  padding: rem(15 17);
+  border-radius: 4px;
+
+  &__item {
+    font-size: rem(16);
+    font-weight: 500;
+
+    &--primary {
+      color: $color-primary;
+    }
+  }
+}

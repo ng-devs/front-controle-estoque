@@ -1,13 +1,5 @@
 <div class="products">
-  <div class="products__breadcrumb">
-    <span class="products__breadcrumb__item products__breadcrumb__item--primary"
-      >Cadastros</span
-    >
-    /
-    <span class="products__breadcrumb__item products__breadcrumb__item--secondary"
-      >Produtos</span
-    >
-  </div>
+  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Produtos'"></bread-crumb>
   <add-button (clickEvent)="add()">Produto</add-button>
 
   <generic-list

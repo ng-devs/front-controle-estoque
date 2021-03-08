@@ -1,0 +1,13 @@
+<div class="sales">
+  <bread-crumb [primaryText]="'Vendas'"></bread-crumb>
+  <add-button (clickEvent)="add()">Venda</add-button>
+
+  <generic-list
+    (actionEvent)="showDetails($event)"
+    [tableData]="dataSource"
+    [itemsDisplayedColumns]="productColumns"
+    [actions]="customActions"
+    [hasDefaultActions]="false"
+  >
+  </generic-list>
+</div>
