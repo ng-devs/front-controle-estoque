@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
