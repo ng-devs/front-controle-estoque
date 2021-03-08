@@ -27,11 +27,12 @@ import { GenericListComponent } from './components/generic-list/generic-list.com
 import { GridComponent } from './components/grid/grid.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { HeaderCategoriaComponent } from './pages/cadastros/categoria/header-categoria/header-categoria.component';
-import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
 import { ProductsComponent } from './pages/cadastros/products/products.component';
 import { SalesComponent } from './pages/cadastros/sales/sales.component';
 import { DashBoardComponent } from './pages/dash-board/dash-board.component';
+import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categoria/crud-categoria.component';
+import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
+import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 registerLocaleData(localePt);
@@ -41,12 +42,13 @@ registerLocaleData(localePt);
     AppComponent,
     DashBoardComponent,
     ReadCategoriaComponent,
-    HeaderCategoriaComponent,
     CardComponent,
     HeaderComponent,
     GridComponent,
     ProductsComponent,
     AddButtonComponent,
+    CreateCategoriaComponent,
+    CrudCategoriaComponent,
     CustomMatTableComponent,
     ModalComponent,
     GenericListComponent,
