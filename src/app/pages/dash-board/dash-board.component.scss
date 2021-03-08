@@ -8,6 +8,9 @@
 // }
 
 .dashboard {
+  padding: 39px 45px 67px 43px;
+  max-width: 1200px;
+  margin: 0 auto;
   @include default-page-padding;
 
   &__title {
