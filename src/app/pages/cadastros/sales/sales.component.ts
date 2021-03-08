@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SALES_MOCK } from 'src/app/mock/mocks';
-import { Action, ActionEvent, SaleListItem, TableColumn } from 'src/app/models';
+import { SALES_MOCK } from 'src/app/mocks/mocks';
+import { Action, ActionEvent, SaleListItem, TableColumns } from 'src/app/models';
 
 @Component({
   templateUrl: './sales.component.html',
@@ -10,7 +10,7 @@ export class SalesComponent implements OnInit {
   constructor() {}
 
   dataSource = SALES_MOCK;
-  productColumns: TableColumn<SaleListItem> = {
+  productColumns: TableColumns<SaleListItem> = {
     id: '#',
     date: 'Data',
     value: 'Valor',
