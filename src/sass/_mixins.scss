@@ -1,8 +1,14 @@
+@import "functions";
+
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
   justify-content: center;
   align-items: center;
+}
+
+@mixin default-page-padding {
+  padding: rem(39 $global-horizontal-padding 67 $global-horizontal-padding);
 }
 
 @mixin reset-css {
@@ -23,6 +29,7 @@
   body {
     height: 100%;
     width: 100%;
+    font-family: $font-primary;
   }
 
   ul {
@@ -65,6 +72,6 @@
 }
 
 @mixin max-size($width, $height: $width) {
-  max-width: rem($width) !important;
+  max-width: rem($width);
   max-height: rem($height);
 }

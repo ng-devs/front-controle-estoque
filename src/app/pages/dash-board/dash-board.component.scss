@@ -1,23 +1,31 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+// ::ng-deep .mat-dialog-container {
+//   padding: 24px 0 !important;
+// }
+
 .dashboard {
   padding: 39px 45px 67px 43px;
   max-width: 1200px;
   margin: 0 auto;
+  @include default-page-padding;
+
   &__title {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
+    font-family: $font-primary;
+    font-size: rem(30);
+    line-height: rem(36);
+    margin-bottom: rem(32);
   }
 
   &__divider {
-    margin-bottom: 45px;
+    margin-bottom: rem(45);
   }
 
   &__cards-container {
     display: flex;
-    column-gap: 37px;
+    column-gap: rem(37);
   }
 }

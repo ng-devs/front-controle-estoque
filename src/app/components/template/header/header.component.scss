@@ -1,39 +1,40 @@
-// Colors principais header e menu
-$primary-color:#7749F8;
-$menu-color:#F2F2F2;
-$hover-color: #333;
+@import "colors";
+@import "variables";
 
+$menu-color: #f2f2f2;
+$hover-color: #333;
 
 .header {
   display: flex;
   align-items: center;
-  background-color: $primary-color;
+  background-color: $color-primary;
+  padding: 0 $global-horizontal-padding;
 
   a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: $menu-color;
+    transition: color 0.2s;
 
-    &:hover{
-      color:$hover-color;
-    }
-
-    &.active{
+    &:hover {
       color: $hover-color;
     }
 
-    img{
-      margin-left: 5px;
-  }
+    &.active {
+      color: $hover-color;
     }
+  }
 
   .logo {
     max-height: 40px;
-    margin-left: 10px;
+  }
+
+  a.header__link:last-of-type {
+    padding-right: 0;
   }
 }
 
-.spacer{
+.spacer {
   flex: 1 1 auto;
 }

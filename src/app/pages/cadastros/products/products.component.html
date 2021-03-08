@@ -1,0 +1,24 @@
+<div class="products">
+  <div class="products__breadcrumb">
+    <span class="products__breadcrumb__item products__breadcrumb__item--primary"
+      >Cadastros</span
+    >
+    /
+    <span class="products__breadcrumb__item products__breadcrumb__item--secondary"
+      >Produtos</span
+    >
+  </div>
+  <add-button (clickEvent)="add()">Produto</add-button>
+
+  <generic-list
+    (actionEvent)="handleActions($event)"
+    [tableData]="dataSource"
+    [itemsDisplayedColumns]="productColumns"
+    [actions]="customActions"
+  >
+    <button mat-menu-item (click)="addQuantity()">
+      <mat-icon class="menu-icon">add</mat-icon>
+      <span>Adicionar Quantidade</span>
+    </button>
+  </generic-list>
+</div>

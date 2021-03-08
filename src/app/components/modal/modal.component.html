@@ -1,0 +1,15 @@
+<ng-template #modal>
+  <div class="modal">
+    <div class="modal__header">
+      <h5 class="modal__title">{{ title }}</h5>
+    </div>
+    <div class="modal__body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal__footer">
+      <button class="modal__footer__btn" mat-raised-button (click)="close()">
+        {{ btnCloseText }}
+      </button>
+    </div>
+  </div>
+</ng-template>
