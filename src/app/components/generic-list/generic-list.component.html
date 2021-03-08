@@ -1,8 +1,5 @@
 <table mat-table [dataSource]="tableData" class="mat-elevation-z0">
-  <ng-container
-    [matColumnDef]="key"
-    *ngFor="let key of objectKeys(itemsDisplayedColumns)"
-  >
+  <ng-container [matColumnDef]="key" *ngFor="let key of columnsWithoutActions">
     <th mat-header-cell *matHeaderCellDef>
       {{ itemsDisplayedColumns[key] }}
     </th>
@@ -12,7 +9,9 @@
   </ng-container>
 
   <ng-container [matColumnDef]="'actions'">
-    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <th mat-header-cell *matHeaderCellDef>
+      {{ itemsDisplayedColumns.actions }}
+    </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
@@ -30,6 +29,6 @@
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="objectKeys(allDisplayedColumns)"></tr>
-  <tr mat-row *matRowDef="let row; columns: objectKeys(allDisplayedColumns)"></tr>
+  <tr mat-header-row *matHeaderRowDef="objectKeys(itemsDisplayedColumns)"></tr>
+  <tr mat-row *matRowDef="let row; columns: objectKeys(itemsDisplayedColumns)"></tr>
 </table>
