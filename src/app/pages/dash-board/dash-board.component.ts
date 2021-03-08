@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
-import { PRODUCTS_STOCK_MOCK, SALES_MOCK } from 'src/app/mock/mocks';
+import { PRODUCTS_STOCK_MOCK, SALES_MOCK } from 'src/app/mocks/mocks';
 import { ProductStockListItem, SaleListItem, TableColumns } from 'src/app/models';
 
 @Component({

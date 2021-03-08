@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PRODUCTS_SOLD_MOCK } from 'src/app/mock/mocks';
+import { PRODUCTS_SOLD_MOCK } from 'src/app/mocks/mocks';
 import { Action, ActionEvent, ProductSoldListItem, TableColumns } from 'src/app/models';
 
 @Component({
