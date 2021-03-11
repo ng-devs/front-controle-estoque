@@ -17,9 +17,7 @@ export class ListComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    setTimeout(() => {
       this.dataSource = of(PAYMENT_SHAPE);
-    }, 2000);
   }
 
   add() {
