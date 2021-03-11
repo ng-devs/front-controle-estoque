@@ -1,0 +1,11 @@
+<div class="sales" *ngIf="(dataSource | async)">
+  <bread-crumb [primaryText]="'Forma Pagamento'"></bread-crumb>
+  <add-button (clickEvent)="add()">Forma Pagamento</add-button>
+
+  <generic-list
+    (actionEvent)="showDetails($event)"
+    [tableData]="(dataSource | async)!"
+    [itemsDisplayedColumns]="productColumns"
+  >
+  </generic-list>
+</div>
