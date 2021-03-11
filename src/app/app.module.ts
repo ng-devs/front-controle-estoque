@@ -34,6 +34,10 @@ import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categor
 import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
 import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
+import { FormaPagamentoComponent } from './pages/cadastros/forma-pagamento/forma-pagamento.component';
+import { CreateEditComponent } from './pages/cadastros/forma-pagamento/create-edit/create-edit.component';
+import { ListComponent } from './pages/cadastros/forma-pagamento/list/list.component';
+
 
 registerLocaleData(localePt);
 
@@ -54,6 +58,9 @@ registerLocaleData(localePt);
     GenericListComponent,
     SalesComponent,
     BreadCrumbComponent,
+    FormaPagamentoComponent,
+    ListComponent,
+    CreateEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +80,7 @@ registerLocaleData(localePt);
     FlexLayoutModule,
     ReactiveFormsModule,
     MatSortModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   providers: [
     {
