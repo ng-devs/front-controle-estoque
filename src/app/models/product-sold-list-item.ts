@@ -1,9 +1,7 @@
-import { Category } from '@app/models';
-
 export interface ProductSoldListItem {
   id: number;
   name: string;
-  category: Category;
+  category: string;
   quantity: number;
   price: number;
 }

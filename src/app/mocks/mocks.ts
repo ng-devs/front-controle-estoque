@@ -1,23 +1,21 @@
 import {
   CategoriaListItem,
-  Category,
   PaymentMethod,
-  PaymentShape,
   ProductSoldListItem,
   ProductStockListItem,
   SaleListItem,
 } from '@app/models';
 
 export const PRODUCTS_SOLD_MOCK: ProductSoldListItem[] = [
-  { id: 1, name: 'Estojo', category: Category.Papelaria, quantity: 300, price: 3.5 },
-  { id: 2, name: 'Sombra', category: Category.Maquiagem, quantity: 200, price: 10 },
-  { id: 3, name: 'Carteira', category: Category.Utilidades, quantity: 155, price: 30 },
+  { id: 1, name: 'Estojo', category: 'Papelaria', quantity: 300, price: 3.5 },
+  { id: 2, name: 'Sombra', category: 'Maquiagem', quantity: 200, price: 10 },
+  { id: 3, name: 'Carteira', category: 'Utilidades', quantity: 155, price: 30 },
 ];
 
 export const CATEGORY_MOCK: CategoriaListItem[] = [
-  { id: Category.Papelaria, name: 'Papelaria' },
-  { id: Category.Maquiagem, name: 'Maquiagem' },
-  { id: Category.Utilidades, name: 'Utilidades' },
+  { id: 1, name: 'Papelaria' },
+  { id: 2, name: 'Maquiagem' },
+  { id: 3, name: 'Utilidades' },
 ];
 
 export const PRODUCTS_STOCK_MOCK: ProductStockListItem[] = [
@@ -27,12 +25,12 @@ export const PRODUCTS_STOCK_MOCK: ProductStockListItem[] = [
 ];
 
 export const SALES_MOCK: SaleListItem[] = [
-  { id: 1, date: '01/01', value: 350, paymentMethod: PaymentMethod.Cash },
-  { id: 2, date: '05/01', value: 230, paymentMethod: PaymentMethod.DebitCard },
-  { id: 3, date: '10/01', value: 50, paymentMethod: PaymentMethod.CreditCard },
+  { id: 1, date: '01/01', value: 350, paymentMethod: 'Dinheiro' },
+  { id: 2, date: '05/01', value: 230, paymentMethod: 'Cartão de Débito' },
+  { id: 3, date: '10/01', value: 50, paymentMethod: 'Cartão de Crédito' },
 ];
 
-export const PAYMENT_SHAPE: PaymentShape[] = [
+export const PAYMENT_SHAPE: PaymentMethod[] = [
   { id: 1, description: 'Cartão de crédito' },
   { id: 2, description: 'PIX' },
   { id: 3, description: 'Boleto' },

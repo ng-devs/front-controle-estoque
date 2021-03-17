@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PAYMENT_SHAPE } from '@app/mocks';
-import { ActionEvent, PaymentShape, TableColumns } from '@app/models';
+import { ActionEvent, PaymentMethod, TableColumns } from '@app/models';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./forma-pagamento-list.component.scss'],
 })
 export class FormaPagamentoListComponent implements OnInit {
-  dataSource: Observable<PaymentShape[]>;
-  productColumns: TableColumns<PaymentShape> = {
+  dataSource: Observable<PaymentMethod[]>;
+  productColumns: TableColumns<PaymentMethod> = {
     id: '#',
     description: 'Descrição',
   };
@@ -22,7 +22,7 @@ export class FormaPagamentoListComponent implements OnInit {
     alert(`Forma de pagamento adicionada`);
   }
 
-  handleActions(actionEvent: ActionEvent<PaymentShape>) {
+  handleActions(actionEvent: ActionEvent<PaymentMethod>) {
     switch (actionEvent.eventName) {
       case 'edit':
         this.edit(actionEvent.item);
@@ -36,11 +36,11 @@ export class FormaPagamentoListComponent implements OnInit {
     }
   }
 
-  edit(item: PaymentShape) {
+  edit(item: PaymentMethod) {
     alert(`Voce editou a forma de pagamento ${item.id} - ${item.description}`);
   }
 
-  delete(item: PaymentShape) {
+  delete(item: PaymentMethod) {
     alert(`Voce deletou a forma de pagamento ${item.id} - ${item.description}`);
   }
 }

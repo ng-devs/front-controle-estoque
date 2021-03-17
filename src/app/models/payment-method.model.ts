@@ -1,4 +1,4 @@
-export interface PaymentShape {
+export interface PaymentMethod {
   id: number;
   description: string;
 }
