@@ -1,4 +1,4 @@
-import { Category } from 'src/app/models/enums';
+import { Category } from '@app/models';
 
 export interface ProductSoldListItem {
   id: number;
