@@ -1,12 +1,23 @@
-import { ProductStockListItem, SaleListItem } from 'src/app/models';
-import { Category, PaymentMethod } from 'src/app/models/enums';
-import { ProductSoldListItem } from 'src/app/models/product-sold-list-item';
-import { PaymentShape } from '../pages/cadastros/forma-pagamento/models/payment-shape.model';
+import {
+  CategoriaListItem,
+  Category,
+  PaymentMethod,
+  PaymentShape,
+  ProductSoldListItem,
+  ProductStockListItem,
+  SaleListItem,
+} from '@app/models';
 
 export const PRODUCTS_SOLD_MOCK: ProductSoldListItem[] = [
   { id: 1, name: 'Estojo', category: Category.Papelaria, quantity: 300, price: 3.5 },
   { id: 2, name: 'Sombra', category: Category.Maquiagem, quantity: 200, price: 10 },
   { id: 3, name: 'Carteira', category: Category.Utilidades, quantity: 155, price: 30 },
+];
+
+export const CATEGORY_MOCK: CategoriaListItem[] = [
+  { id: Category.Papelaria, name: 'Papelaria' },
+  { id: Category.Maquiagem, name: 'Maquiagem' },
+  { id: Category.Utilidades, name: 'Utilidades' },
 ];
 
 export const PRODUCTS_STOCK_MOCK: ProductStockListItem[] = [

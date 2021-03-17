@@ -18,49 +18,58 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  AddButtonComponent,
+  BreadCrumbComponent,
+  CardComponent,
+  CustomMatTableComponent,
+  GenericListComponent,
+  GridComponent,
+  HeaderComponent,
+  ModalComponent,
+} from '@app/components';
+import {
+  DashBoardComponent,
+  FormaPagamentoComponent,
+  FormaPagamentoCreateEditComponent,
+  FormaPagamentoListComponent,
+  ProductsListComponent,
+  SalesComponent,
+  SalesCreateEditComponent,
+  SalesListComponent,
+} from '@app/pages';
+import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddButtonComponent } from './components/add-button/add-button.component';
-import { CardComponent } from './components/card/card.component';
-import { CustomMatTableComponent } from './components/custom-mat-table/custom-mat-table.component';
-import { GenericListComponent } from './components/generic-list/generic-list.component';
-import { GridComponent } from './components/grid/grid.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ModalComponent } from './components/modal/modal.component';
-import { ProductsComponent } from './pages/cadastros/products/products.component';
-import { SalesComponent } from './pages/cadastros/sales/sales.component';
-import { DashBoardComponent } from './pages/dash-board/dash-board.component';
-import { CrudCategoriaComponent } from './pages/cadastros/categoria/crud-categoria/crud-categoria.component';
-import { ReadCategoriaComponent } from './pages/cadastros/categoria/read-categoria/read-categoria.component';
-import { CreateCategoriaComponent } from './pages/cadastros/categoria/create-categoria/create-categoria.component';
-import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
-import { FormaPagamentoComponent } from './pages/cadastros/forma-pagamento/forma-pagamento.component';
-import { CreateEditComponent } from './pages/cadastros/forma-pagamento/create-edit/create-edit.component';
-import { ListComponent } from './pages/cadastros/forma-pagamento/list/list.component';
-
+import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
+import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
+import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashBoardComponent,
-    ReadCategoriaComponent,
+    BreadCrumbComponent,
+    ModalComponent,
+    GridComponent,
     CardComponent,
     HeaderComponent,
-    GridComponent,
-    ProductsComponent,
     AddButtonComponent,
-    CreateCategoriaComponent,
-    CrudCategoriaComponent,
     CustomMatTableComponent,
-    ModalComponent,
     GenericListComponent,
+    DashBoardComponent,
+    ProductsComponent,
+    ProductsListComponent,
     SalesComponent,
-    BreadCrumbComponent,
+    SalesListComponent,
+    SalesCreateEditComponent,
     FormaPagamentoComponent,
-    ListComponent,
-    CreateEditComponent,
+    FormaPagamentoListComponent,
+    FormaPagamentoCreateEditComponent,
+    CategoriaComponent,
+    CategoriaListComponent,
+    CategoriaCreateEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +89,7 @@ registerLocaleData(localePt);
     FlexLayoutModule,
     ReactiveFormsModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     {

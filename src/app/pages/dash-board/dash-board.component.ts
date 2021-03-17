@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalComponent } from 'src/app/components/modal/modal.component';
-import { PRODUCTS_STOCK_MOCK, SALES_MOCK } from 'src/app/mocks/mocks';
-import { ProductStockListItem, SaleListItem, TableColumns } from 'src/app/models';
+import { ModalComponent } from '@app/components';
+import { PRODUCTS_STOCK_MOCK, SALES_MOCK } from '@app/mocks';
+import { ProductStockListItem, SaleListItem, TableColumns } from '@app/models';
 
 @Component({
   templateUrl: './dash-board.component.html',

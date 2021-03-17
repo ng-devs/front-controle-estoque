@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Action, ActionEvent } from 'src/app/models';
+import { Action, ActionEvent } from '@app/models';
 
 @Component({
   selector: 'generic-list',
