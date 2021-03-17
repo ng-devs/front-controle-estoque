@@ -1,0 +1,11 @@
+<div class="categoria">
+  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
+  <add-button (clickEvent)="add()">Categoria</add-button>
+
+  <generic-list
+    (actionEvent)="handleActions($event)"
+    [tableData]="dataSource"
+    [itemsDisplayedColumns]="productColumns"
+  >
+  </generic-list>
+</div>
