@@ -1,4 +1,4 @@
-import { PaymentMethod } from 'src/app/models';
+import { PaymentMethod } from 'app/models/enums';
 
 export interface SaleListItem {
   id: number;
