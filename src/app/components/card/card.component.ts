@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
-  constructor() {}
+export class CardComponent {
   @Input() btnBgColor: string;
   @Input() btnText: string;
   @Input() contentColor: string;
@@ -14,6 +13,4 @@ export class CardComponent implements OnInit {
   @Input() value: number;
   @Input() extraData: string;
   @Output() btnEvent = new EventEmitter<void>();
-
-  ngOnInit(): void {}
 }

@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { Filter, ProdutoFilterProps, ProdutoListItem } from './produto.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProdutoService {
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class ProdutoService {
       .get<ProdutoListItem[]>(`${environment.url}/produtos`, {
         observe: 'response',
         responseType: 'json',
-        //para json server, será necessário ajustar as proprieades
+        //para json server, será necessário ajustar as propriedades
         //params: filtro
       })
       .pipe(
@@ -26,9 +26,9 @@ export class ProdutoService {
             headers: new HttpHeaders().set(
               'x-pagination',
               '{"currentPage":1,"totalPages":1,"pageSize":10,"totalCount":1,"hasPrevious":false,"hasNext":false}'
-            )
+            ),
           });
-          console.log(clone)
+          console.log(clone);
           return clone;
         })
       );

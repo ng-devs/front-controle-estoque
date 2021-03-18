@@ -1,6 +1,4 @@
-export class PaymentShape {
+export interface PaymentMethod {
   id: number;
   description: string;
 }
-
-

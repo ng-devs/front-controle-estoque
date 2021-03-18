@@ -1,0 +1,14 @@
+<div class="forma-pagamento" *ngIf="dataSource | async">
+  <bread-crumb
+    [primaryText]="'Cadastros'"
+    [secondaryText]="'Forma Pagamento'"
+  ></bread-crumb>
+  <add-button (clickEvent)="add()">Forma Pagamento</add-button>
+
+  <generic-list
+    (actionEvent)="handleActions($event)"
+    [tableData]="(dataSource | async)!"
+    [itemsDisplayedColumns]="productColumns"
+  >
+  </generic-list>
+</div>
