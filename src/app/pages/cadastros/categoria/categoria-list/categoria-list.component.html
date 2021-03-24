@@ -1,6 +1,6 @@
 <div class="categoria">
   <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
-  <add-button (clickEvent)="add()">Categoria</add-button>
+  <add-button routerLink="/cadastros/categoria/add">Categoria</add-button>
 
   <generic-list
     (actionEvent)="handleActions($event)"

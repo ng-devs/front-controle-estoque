@@ -15,14 +15,9 @@
   <a class="header__link" mat-button routerLink="/vendas" routerLinkActive="active" r
     >Vendas +</a
   >
-  <a
-    class="header__link"
-    mat-button
-    routerLinkActive="active"
+  <a class="header__link" mat-button routerLink="/cadastros" routerLinkActive="active"
     [matMenuTriggerFor]="cadastros"
-    >Cadastros
-    <img src="assets/images/Rectangle 49.png" />
-  </a>
+    >Cadastros ▾</a>
   <mat-menu #cadastros="matMenu">
     <a mat-menu-item routerLink="/cadastros/categoria" routerLinkActive="active"
       >Categorias</a

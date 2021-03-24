@@ -1,1 +1,19 @@
-<p>categoria-create-edit works!</p>
+<div class="categoria">
+  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
+  <h2> {{ isEditMode ? "Editar Categoria" : "Adicionar Categoria" }}
+  </h2>
+  <div class="cadcategoria">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label class="idcat">ID <br>
+        <input class="idcat" name="id" formControlName="id" type="number" placeholder=" ID">
+      </label>
+      <label class="nomecat">Nome da Categoria: <br>
+        <input class="nome" name="nome" formControlName="name" type="text" placeholder=" Nome">
+      </label>
+    </form>
+    <span>
+      <button mat-raised-button (click)="saveCat(id)" class="salvar" [disabled]="form.invalid">Atualizar</button>
+      <button mat-raised-button routerLink="/cadastros/categoria" class="cancelar">Cancelar</button>
+    </span>
+  </div>
+</div>
