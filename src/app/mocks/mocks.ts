@@ -30,7 +30,7 @@ export const SALES_MOCK: SaleListItem[] = [
   { id: 3, date: '10/01', value: 50, paymentMethod: 'Cartão de Crédito' },
 ];
 
-export const PAYMENT_SHAPE: PaymentMethod[] = [
+export const PAYMENT_METHOD: PaymentMethod[] = [
   { id: 1, description: 'Cartão de crédito' },
   { id: 2, description: 'PIX' },
   { id: 3, description: 'Boleto' },

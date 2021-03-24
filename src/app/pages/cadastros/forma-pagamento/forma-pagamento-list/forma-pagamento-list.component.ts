@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PAYMENT_SHAPE } from '@app/mocks';
+import { PAYMENT_METHOD } from '@app/mocks';
 import { ActionEvent, PaymentMethod, TableColumns } from '@app/models';
 import { Observable, of } from 'rxjs';
 
@@ -15,7 +15,7 @@ export class FormaPagamentoListComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.dataSource = of(PAYMENT_SHAPE);
+    this.dataSource = of(PAYMENT_METHOD);
   }
 
   add() {
