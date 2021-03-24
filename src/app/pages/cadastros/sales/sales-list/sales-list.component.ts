@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SALES_MOCK } from '@app/mocks';
 import { Action, ActionEvent, SaleListItem, TableColumns } from '@app/models';
 
@@ -24,8 +25,10 @@ export class SalesListComponent {
     },
   ];
 
+  constructor(private router: Router) {}
+
   add() {
-    alert('venda adicionada');
+    this.router.navigateByUrl('vendas/create-edit');
   }
 
   showDetails(action: ActionEvent<SaleListItem>) {

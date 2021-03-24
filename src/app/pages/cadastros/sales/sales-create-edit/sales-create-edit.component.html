@@ -1,1 +1,85 @@
-<p>sales-create-edit works!</p>
+<div class="sale">
+  <h1 class="sale__title">Vendas</h1>
+  <mat-divider class="sale__divider"></mat-divider>
+  <form novalidate class="form" [formGroup]="salesFormGroup">
+    <div class="form__products" formArrayName="products">
+      <div
+        class="form__product"
+        *ngFor="let item of products.controls; let pointIndex = index"
+        [formGroupName]="pointIndex"
+      >
+        <mat-form-field
+          class="form__field form__field--full column-1 row-1"
+          appearance="outline"
+        >
+          <mat-label>Selecione a categoria</mat-label>
+          <mat-select formControlName="category" name="food">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field
+          class="form__field form__field--full column-2 row-1"
+          appearance="outline"
+        >
+          <mat-label>Quantidade</mat-label>
+          <input
+            type="number"
+            matInput
+            formControlName="quantity"
+            placeholder="digite a quantidade de produtos"
+          />
+          <mat-error> </mat-error>
+        </mat-form-field>
+        <div class="form__icons column-3 row-1">
+          <button
+            (click)="addProduct()"
+            class="form__button form__button--icon"
+            type="button"
+            mat-mini-fab
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <button
+            (click)="deleteProduct(pointIndex)"
+            class="form__button form__button--icon"
+            type="button"
+            mat-mini-fab
+            [disabled]="!canRemove"
+          >
+            <mat-icon class="mat-18">remove</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field class="form__field column-1 row-2" appearance="outline">
+      <mat-label>Selecione a forma de pagamento</mat-label>
+      <mat-select formControlName="paymentMethod" name="food">
+        <mat-option
+          *ngFor="let paymentMethod of paymentMethods"
+          [value]="paymentMethod.id"
+        >
+          {{ paymentMethod.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="sales__buttons column-1 row-3">
+      <button
+        [disabled]="salesFormGroup.invalid"
+        (click)="save()"
+        type="submit"
+        mat-raised-button
+        class="form__button form__button--save"
+      >
+        Salvar
+      </button>
+      <button type="reset" mat-raised-button class="form__button form__button--cancel">
+        Cancelar
+      </button>
+    </div>
+  </form>
+  <p style="margin-top: 20px">Form Values {{ salesFormGroup.value | json }}</p>
+</div>
