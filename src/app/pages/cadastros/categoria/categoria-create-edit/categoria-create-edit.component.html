@@ -8,11 +8,11 @@
         <input class="idcat" name="id" formControlName="id" type="number" placeholder=" ID">
       </label>
       <label class="nomecat">Nome da Categoria: <br>
-        <input class="nome" name="nome" formControlName="name" type="text" placeholder=" Nome">
+        <input class="nomecat" name="nome" formControlName="name" type="text" placeholder=" Nome">
       </label>
     </form>
     <span>
-      <button mat-raised-button (click)="saveCat(id)" class="salvar" [disabled]="form.invalid">Atualizar</button>
+      <button mat-raised-button (click)="saveCat(id)" class="salvar" [disabled]="form.invalid">Salvar</button>
       <button mat-raised-button routerLink="/cadastros/categoria" class="cancelar">Cancelar</button>
     </span>
   </div>
