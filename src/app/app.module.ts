@@ -45,6 +45,7 @@ import { AppComponent } from './app.component';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
+import { ShowValidationDirective } from './directives/show-validation.directive';
 
 registerLocaleData(localePt);
 
@@ -72,6 +73,7 @@ registerLocaleData(localePt);
     CategoriaComponent,
     CategoriaListComponent,
     CategoriaCreateEditComponent,
+    ShowValidationDirective,
   ],
   imports: [
     BrowserModule,

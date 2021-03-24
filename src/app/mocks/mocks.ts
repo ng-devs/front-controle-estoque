@@ -6,6 +6,18 @@ import {
   SaleListItem,
 } from '@app/models';
 
+export interface Product {
+  id: number;
+  name: string;
+  categoryID: number;
+}
+
+export const PRODUCTS: Product[] = [
+  { id: 1, name: 'Lapis', categoryID: 1 },
+  { id: 2, name: 'Carteira', categoryID: 2 },
+  { id: 3, name: 'Caderno', categoryID: 3 },
+];
+
 export const PRODUCTS_SOLD_MOCK: ProductSoldListItem[] = [
   { id: 1, name: 'Estojo', category: 'Papelaria', quantity: 300, price: 3.5 },
   { id: 2, name: 'Sombra', category: 'Maquiagem', quantity: 200, price: 10 },
@@ -30,7 +42,7 @@ export const SALES_MOCK: SaleListItem[] = [
   { id: 3, date: '10/01', value: 50, paymentMethod: 'Cartão de Crédito' },
 ];
 
-export const PAYMENT_SHAPE: PaymentMethod[] = [
+export const PAYMENT_METHOD: PaymentMethod[] = [
   { id: 1, description: 'Cartão de crédito' },
   { id: 2, description: 'PIX' },
   { id: 3, description: 'Boleto' },

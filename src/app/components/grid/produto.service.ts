@@ -28,7 +28,6 @@ export class ProdutoService {
               '{"currentPage":1,"totalPages":1,"pageSize":10,"totalCount":1,"hasPrevious":false,"hasNext":false}'
             ),
           });
-          console.log(clone);
           return clone;
         })
       );

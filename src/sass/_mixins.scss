@@ -8,7 +8,7 @@
 }
 
 @mixin default-page-padding {
-  padding: rem(39 $global-horizontal-padding 67 $global-horizontal-padding);
+  padding: rem(39 0 67 0);
 }
 
 @mixin reset-css {

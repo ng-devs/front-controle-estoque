@@ -5,6 +5,8 @@
         "configuracoes",
         "devkit",
         "devs",
-        "formaspagamento"
+        "formaspagamento",
+        "maxlength",
+        "minlength"
     ]
 }
