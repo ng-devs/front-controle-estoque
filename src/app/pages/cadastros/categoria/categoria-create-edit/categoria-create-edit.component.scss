@@ -1,0 +1,50 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.categoria {
+  @include default-page-padding;
+}
+
+h2{
+  margin-top: 20px;
+}
+
+.cadcategoria{
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+form {
+  display:flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+button {
+  flex-direction: column;
+  margin: 30px 15px 0px 0px;
+}
+
+button.salvar{
+  background-color: #2fb82f;
+  color: #ffffff;
+}
+
+input{
+  margin-top: 5px;
+  margin-right: 20px;
+  border: solid 1px #cecece;
+  border-radius: 4px;
+  height: 30px;
+}
+
+input.idcat{
+  background-color: #cecece;
+  width: 130px;
+}
+
+input.nomecat{
+  width: 600px;
+}

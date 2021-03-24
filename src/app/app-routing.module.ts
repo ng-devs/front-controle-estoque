@@ -25,7 +25,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'list', component: CategoriaListComponent },
-      { path: 'create-edit', component: CategoriaCreateEditComponent },
+      { path: 'add', component: CategoriaCreateEditComponent },
+      { path: 'edit/:id', component: CategoriaCreateEditComponent },
     ],
   },
   {

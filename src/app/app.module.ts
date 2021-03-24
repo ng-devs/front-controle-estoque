@@ -93,6 +93,7 @@ registerLocaleData(localePt);
     MatSortModule,
     MatDialogModule,
   ],
+
   providers: [
     {
       provide: LOCALE_ID,
