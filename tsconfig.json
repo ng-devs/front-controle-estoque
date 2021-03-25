@@ -21,6 +21,7 @@
     "paths": {
       "@app/mocks": ["app/mocks/index.ts"],
       "@app/models": ["app/models/index.ts"],
+      "@app/directives": ["app/directives/index.ts"],
       "@app/components": ["app/components/index.ts"],
       "@app/pages": ["app/pages/index.ts"]
     }
