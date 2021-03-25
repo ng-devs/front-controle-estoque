@@ -21,13 +21,15 @@ export class GridComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new CustomDataSource<ProdutoListItem, ProdutoFilterProps>(
-      (filtro: Filter<ProdutoFilterProps>) => this.produtoService.buscarLista(filtro)
+      (filtro: Filter<ProdutoFilterProps>) => this.produtoService.buscarLista()
     );
 
     this.filtro = new FormGroup({
       id: new FormControl('', [Validators.pattern(/\d{1,}/g)]),
       nome: new FormControl('')
     });
+
+    console.log('Init Grid')
   }
 
   ngAfterViewInit(): void {

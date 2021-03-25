@@ -5,9 +5,9 @@ import {
   CategoriaCreateEditComponent,
   CategoriaListComponent,
   DashBoardComponent,
-  FormaPagamentoComponent,
-  FormaPagamentoCreateEditComponent,
-  FormaPagamentoListComponent,
+  PaymentMethodComponent,
+  PaymentMethodCreateEditComponent,
+  PaymentMethodListComponent,
   ProductsComponent,
   ProductsCreateEditComponent,
   ProductsListComponent,
@@ -49,11 +49,12 @@ const routes: Routes = [
   },
   {
     path: 'cadastros/formas-pagamento',
-    component: FormaPagamentoComponent,
+    component: PaymentMethodComponent,
     children: [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
-      { path: 'list', component: FormaPagamentoListComponent },
-      { path: 'create-edit', component: FormaPagamentoCreateEditComponent },
+      { path: 'list', component: PaymentMethodListComponent },
+      { path: 'create-edit', component: PaymentMethodCreateEditComponent },
+      { path: 'create-edit/:id', component: PaymentMethodCreateEditComponent },
     ],
   },
 ];
