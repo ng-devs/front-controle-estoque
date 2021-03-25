@@ -8,28 +8,30 @@ import { VALIDATIONS } from 'app/directives/validations';
 export class ShowValidationDirective {
   @Input('showValidation') controlName: string;
 
-  constructor(private elementRef: ElementRef, private parent: ControlContainer) {}
+  constructor(private elementRef: ElementRef, private container: ControlContainer) {}
 
   ngAfterContentInit(): void {
-    const group = this.parent.control as FormGroup;
-    const control = group.controls[this.controlName] as FormControl;
+    const formGroup = this.container.control as FormGroup;
+    const formControl = formGroup.controls[this.controlName] as FormControl;
 
-    const handleState = () => {
-      const errorMessage = this.checkValidations(control);
-      const errorMessageParent = this.checkValidations(group);
+    const validate = () => {
+      const errorMessage = this.getErrorMessage(formControl);
+      const errorMessageParent = this.getErrorMessage(formGroup);
       const error = errorMessage || errorMessageParent;
       this.setInnerHTML(error);
     };
 
-    control.statusChanges.subscribe(() => handleState());
-    handleState();
+    formControl.statusChanges.subscribe(() => validate());
+    validate();
   }
 
   private setInnerHTML(html: string) {
     this.elementRef.nativeElement.innerHTML = html;
   }
 
-  private checkValidations(control: AbstractControl): string {
-    return VALIDATIONS.find((c) => control.hasError(c.key))?.value(control) || '';
+  private getErrorMessage(control: AbstractControl): string {
+    return (
+      VALIDATIONS.find((validationObj) => control.hasError(validationObj.errorName))?.messageFn(control) || ''
+    );
   }
 }
