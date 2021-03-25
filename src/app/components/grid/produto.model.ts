@@ -10,10 +10,10 @@ export interface ProdutoFilterProps {
 }
 
 export interface ProdutoListItem {
-  produtoServicoID: number;
+  id: number;
   nome: string;
-  agrupamento: string;
-  ativo: boolean;
+  categoria: string;
+  quantidade: number;
 }
 
 export type ModelProps<T> = {
