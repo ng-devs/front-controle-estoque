@@ -2,43 +2,43 @@ import { AbstractControl } from '@angular/forms';
 
 export const VALIDATIONS = [
   {
-    key: 'required',
-    value: () => 'campo<strong> obrigatório</strong>',
+    errorName: 'required',
+    messageFn: () => 'campo<strong> obrigatório</strong>',
   },
   {
-    key: 'email',
-    value: () => 'email<strong> inválido</strong>',
+    errorName: 'email',
+    messageFn: () => 'email<strong> inválido</strong>',
   },
   {
-    key: 'min',
-    value: (control: AbstractControl) =>
+    errorName: 'min',
+    messageFn: (control: AbstractControl) =>
       `o valor não pode ser <strong>menor que ${control?.errors?.min.min}</strong>`,
   },
   {
-    key: 'minlength',
-    value: (control: AbstractControl) =>
+    errorName: 'minlength',
+    messageFn: (control: AbstractControl) =>
       `mínimo de <strong>${control?.errors?.minlength.requiredLength} caracteres</strong>`,
   },
   {
-    key: 'maxlength',
-    value: (control: AbstractControl) =>
+    errorName: 'maxlength',
+    messageFn: (control: AbstractControl) =>
       `máximo de <strong>${control?.errors?.maxlength.requiredLength} caracteres</strong>`,
   },
   {
-    key: 'pattern',
-    value: () => `<strong>caracteres</strong> inválidos`,
+    errorName: 'pattern',
+    messageFn: () => `<strong>caracteres</strong> inválidos`,
   },
   {
-    key: 'lowerCaseCharacter',
-    value: (control: AbstractControl) => control?.errors?.lowerCaseCharacter,
+    errorName: 'lowerCaseCharacter',
+    messageFn: (control: AbstractControl) => control?.errors?.lowerCaseCharacter,
   },
   {
-    key: 'pascalCaseCharacter',
-    value: (control: AbstractControl) => control?.errors?.pascalCaseCharacter,
+    errorName: 'pascalCaseCharacter',
+    messageFn: (control: AbstractControl) => control?.errors?.pascalCaseCharacter,
   },
 
   {
-    key: 'specialCharacter',
-    value: (control: AbstractControl) => control?.errors?.specialCharacter,
+    errorName: 'specialCharacter',
+    messageFn: (control: AbstractControl) => control?.errors?.specialCharacter,
   },
 ];
