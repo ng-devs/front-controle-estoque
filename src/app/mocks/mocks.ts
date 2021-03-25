@@ -5,6 +5,7 @@ import {
   ProductStockListItem,
   SaleListItem,
 } from '@app/models';
+import { ProdutoListItem } from 'app/components/grid/produto.model';
 
 export interface Product {
   id: number;
@@ -46,4 +47,9 @@ export const PAYMENT_METHOD: PaymentMethod[] = [
   { id: 1, description: 'Cartão de crédito' },
   { id: 2, description: 'PIX' },
   { id: 3, description: 'Boleto' },
+];
+
+export const PRODUTOS_MAIS_VENDIDOS: ProdutoListItem[] = [
+  { id: 1, nome: 'Caneta', categoria: 'Papelaria', quantidade: 200 },
+  { id: 1, nome: 'Borracha', categoria: 'Papelaria', quantidade: 20 },
 ];
