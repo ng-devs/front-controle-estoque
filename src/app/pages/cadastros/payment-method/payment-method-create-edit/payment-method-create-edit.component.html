@@ -6,21 +6,18 @@
   <h2>{{ id ? "Editar Forma de Pagamento" : "Cadastrar Forma de Pagamento" }}</h2>
   <div class="">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
-      <section fxLayout="column">
-        <mat-form-field>
-          <input type="text" matInput placeholder="ID" formControlName="id" />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            type="text"
-            matInput
-            placeholder="Descrição"
-            formControlName="description"
-          />
-          <mat-error>
-            <span>{{ getErrorMessage() }}</span>
-          </mat-error>
-        </mat-form-field>
+      <section class="payment-method__fields" fxLayout="row">
+        <generic-input
+          controlName="id"
+          [hasLabel]="false"
+          type="text"
+          [placeholder]="'ID'"
+        ></generic-input>
+        <generic-input
+          controlName="description"
+          type="text"
+          label="Descrição"
+        ></generic-input>
       </section>
       <div fxLayoutGap="10px">
         <button

@@ -41,19 +41,6 @@ export class PaymentMethodCreateEditComponent implements OnInit {
     );
   }
 
-  private errorsMessage = {
-    required: () => 'campo obrigatório',
-    minlength: (error: any) => `informe ao menos ${error.minlength.requiredLength} caracteres`,
-  };
-
-  getErrorMessage() {
-    const error = this.form.controls.description.errors;
-    if (!error) return;
-    const errorName = Object.entries(error)[0][0] as 'required' | 'minlength';
-    const errorMessageFn = this.errorsMessage[errorName];
-    return errorMessageFn(error);
-  }
-
   createPaymentMethod() {
     alert('Created successfully');
   }

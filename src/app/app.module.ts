@@ -42,10 +42,13 @@ import {
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
+import { GenericInputComponent } from './components/generic-input/generic-input.component';
+import { ShowValidationDirective } from './directives/show-validation.directive';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
-import { ShowValidationDirective } from './directives/show-validation.directive';
+import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 
 registerLocaleData(localePt);
 
@@ -74,6 +77,9 @@ registerLocaleData(localePt);
     CategoriaListComponent,
     CategoriaCreateEditComponent,
     ShowValidationDirective,
+    GenericInputComponent,
+    GenericBaseFormFieldComponent,
+    GenericSelectComponent,
   ],
   imports: [
     BrowserModule,
