@@ -1,5 +1,4 @@
-import { AfterViewInit } from '@angular/core';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { CustomDataSource, Filter, Pagination, ProdutoFilterProps, ProdutoListItem } from './produto.model';
@@ -8,10 +7,9 @@ import { ProdutoService } from './produto.service';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit, AfterViewInit {
-
   filtro: FormGroup;
   dataSource: CustomDataSource<ProdutoListItem, ProdutoFilterProps>;
   displayedColumns: string[] = ['id', 'nome', 'categoria', 'quantidade'];
@@ -26,10 +24,8 @@ export class GridComponent implements OnInit, AfterViewInit {
 
     this.filtro = new FormGroup({
       id: new FormControl('', [Validators.pattern(/\d{1,}/g)]),
-      nome: new FormControl('')
+      nome: new FormControl(''),
     });
-
-    console.log('Init Grid')
   }
 
   ngAfterViewInit(): void {
@@ -42,7 +38,7 @@ export class GridComponent implements OnInit, AfterViewInit {
         pageNumber: 1,
         pageSize: this.paginator.pageSize,
         sortOrder: 'asc',
-        ...this.filtro.value
+        ...this.filtro.value,
       })
       .subscribe((pagination: Pagination) => {
         this.paginator.length = pagination.totalCount;

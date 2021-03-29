@@ -1,0 +1,7 @@
+<mat-form-field *ngIf="controlRef" appearance="outline">
+  <mat-label *ngIf="hasLabel">{{ label }}</mat-label>
+  <input [type]="type" matInput [placeholder]="placeholder" [formControl]="controlRef" />
+  <mat-error>
+    <span [showValidation]="controlName"></span>
+  </mat-error>
+</mat-form-field>

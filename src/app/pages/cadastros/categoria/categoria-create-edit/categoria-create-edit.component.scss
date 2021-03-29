@@ -7,45 +7,30 @@
   @include default-page-padding;
 }
 
-h2{
-  margin-top: 20px;
+section {
+  width: 100%;
 }
 
-.cadcategoria{
+generic-input:first-of-type {
+  width: 100px;
+  margin-right: rem(20);
+}
+
+generic-input {
+  width: 100%;
+}
+
+h2 {
   margin-top: 20px;
-  font-size: 14px;
 }
 
 form {
-  display:flex;
+  display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
 
-button {
-  flex-direction: column;
-  margin: 30px 15px 0px 0px;
-}
-
-button.salvar{
+button.salvar {
   background-color: #2fb82f;
   color: #ffffff;
-}
-
-input{
-  margin-top: 5px;
-  margin-right: 20px;
-  border: solid 1px #cecece;
-  border-radius: 4px;
-  height: 40px;
-  font-size: 15px;
-}
-
-input.idcat{
-  background-color: #cecece;
-  width: 130px;
-}
-
-input.nomecat{
-  width: 87.47vw;
 }

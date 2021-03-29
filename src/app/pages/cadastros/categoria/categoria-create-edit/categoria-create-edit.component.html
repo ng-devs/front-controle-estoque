@@ -1,19 +1,30 @@
 <div class="categoria">
   <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
-  <h2> {{ isEditMode ? "Editar Categoria" : "Adicionar Categoria" }}
-  </h2>
+  <h2>{{ isEditMode ? "Editar Categoria" : "Adicionar Categoria" }}</h2>
   <div class="cadcategoria">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <label class="idcat">ID <br>
-        <input class="idcat" name="id" formControlName="id" type="number" placeholder=" ID">
-      </label>
-      <label class="nomecat">Nome da Categoria: <br>
-        <input class="nomecat" name="nome" formControlName="name" type="text" placeholder=" Nome">
-      </label>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
+      <section class="payment-method__fields" fxLayout="row">
+        <generic-input
+          controlName="id"
+          [hasLabel]="false"
+          type="number"
+          [placeholder]="'ID'"
+        ></generic-input>
+        <generic-input controlName="name" type="text" label="Categoria"></generic-input>
+      </section>
+      <div fxLayoutGap="10px">
+        <button
+          mat-raised-button
+          (click)="saveCat(id)"
+          class="salvar"
+          [disabled]="form.invalid"
+        >
+          Salvar
+        </button>
+        <button mat-raised-button routerLink="/cadastros/categoria" class="cancelar">
+          Cancelar
+        </button>
+      </div>
     </form>
-    <span>
-      <button mat-raised-button (click)="saveCat(id)" class="salvar" [disabled]="form.invalid">Salvar</button>
-      <button mat-raised-button routerLink="/cadastros/categoria" class="cancelar">Cancelar</button>
-    </span>
   </div>
 </div>

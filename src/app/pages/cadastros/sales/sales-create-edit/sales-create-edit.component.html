@@ -8,39 +8,25 @@
         *ngFor="let item of products.controls; let pointIndex = index"
         [formGroupName]="pointIndex"
       >
-        <mat-form-field
-          class="form__field form__field--full column-1 row-1"
-          appearance="outline"
-        >
-          <mat-label>Selecione o produto</mat-label>
-          <mat-select
-            formControlName="product"
-            (selectionChange)="selectedItem($event, item)"
-          >
-            <mat-option *ngFor="let product of productsList" [value]="product.id">
-              {{ product.name }}
-            </mat-option>
-          </mat-select>
-          <mat-error>
-            <span showValidation="product"></span>
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field
+        <generic-select
+          (changeSelect)="selectedItem($event, item)"
           class="form__field form__field--full column-2 row-1"
-          appearance="outline"
+          [label]="'Selecione o produto'"
+          controlName="product"
+          [items]="productsList"
+          keyName="id"
+          valueName="name"
+        ></generic-select>
+
+        <generic-input
+          class="form__field form__field--full column-2 row-1"
+          [label]="'Quantidade'"
+          controlName="quantity"
+          [type]="'number'"
+          [placeholder]="'digite a quantidade de produtos'"
         >
-          <mat-label>Quantidade</mat-label>
-          <input
-            type="number"
-            matInput
-            formControlName="quantity"
-            placeholder="digite a quantidade de produtos"
-          />
-          <mat-error>
-            <span showValidation="quantity"></span>
-          </mat-error>
-        </mat-form-field>
+        </generic-input>
+
         <div class="form__icons column-3 row-1">
           <button
             (click)="addProduct()"
@@ -63,17 +49,14 @@
       </div>
     </div>
 
-    <mat-form-field class="form__field column-1 row-2" appearance="outline">
-      <mat-label>Selecione a forma de pagamento</mat-label>
-      <mat-select formControlName="paymentForm" name="food">
-        <mat-option *ngFor="let paymentForm of paymentMethods" [value]="paymentForm.id">
-          {{ paymentForm.description }}
-        </mat-option>
-      </mat-select>
-      <mat-error>
-        <span showValidation="paymentForm"></span>
-      </mat-error>
-    </mat-form-field>
+    <generic-select
+      class="form__field form__field--full column-2 row-1"
+      [label]="'Selecione a forma de pagamento'"
+      controlName="paymentForm"
+      [items]="paymentMethods"
+      keyName="id"
+      valueName="description"
+    ></generic-select>
 
     <div class="sales__buttons column-1 row-3">
       <button

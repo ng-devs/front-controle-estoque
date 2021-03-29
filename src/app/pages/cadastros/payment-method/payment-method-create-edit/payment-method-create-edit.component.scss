@@ -1,0 +1,25 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.payment-method {
+  @include default-page-padding;
+
+  &__fields {
+    margin-top: rem(20);
+  }
+}
+
+generic-input:first-of-type {
+  width: 100px;
+  margin-right: rem(20);
+}
+
+generic-input {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 20px;
+}
