@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select [formControl]="controlRef" (selectionChange)="changeSelect.emit($event)">
+    <mat-option *ngFor="let item of items" [value]="item[keyName]">
+      {{ item[valueName] }}
+    </mat-option>
+  </mat-select>
+  <mat-error>
+    <span [showValidation]="controlName"></span>
+  </mat-error>
+</mat-form-field>
