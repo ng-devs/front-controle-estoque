@@ -38,9 +38,39 @@ export const PRODUCTS_STOCK_MOCK: ProductStockListItem[] = [
 ];
 
 export const SALES_MOCK: SaleListItem[] = [
-  { id: 1, date: '01/01', value: 350, paymentMethod: 'Dinheiro' },
-  { id: 2, date: '05/01', value: 230, paymentMethod: 'Cartão de Débito' },
-  { id: 3, date: '10/01', value: 50, paymentMethod: 'Cartão de Crédito' },
+  {
+    id: 1,
+    date: new Date(),
+    value: 350,
+    paymentMethod: 'Dinheiro',
+    products: [
+      { id: 1, name: 'Estojo', quantity: 2, unityPrice: 3, total: 6.0 },
+      { id: 2, name: 'Sombra', quantity: 2, unityPrice: 30.0, total: 60.0 },
+      { id: 3, name: 'Carteira', quantity: 5, unityPrice: 20.0, total: 100.0 },
+    ],
+  },
+  {
+    id: 2,
+    date: new Date(),
+    value: 230,
+    paymentMethod: 'Cartão de Débito',
+    products: [
+      { id: 1, name: 'Estojo', quantity: 2, unityPrice: 3, total: 6.0 },
+      { id: 2, name: 'Sombra', quantity: 2, unityPrice: 30.0, total: 60.0 },
+      { id: 3, name: 'Carteira', quantity: 5, unityPrice: 20.0, total: 100.0 },
+    ],
+  },
+  {
+    id: 3,
+    date: new Date(),
+    value: 50,
+    paymentMethod: 'Cartão de Crédito',
+    products: [
+      { id: 1, name: 'Estojo', quantity: 2, unityPrice: 3, total: 6.0 },
+      { id: 2, name: 'Sombra', quantity: 2, unityPrice: 30.0, total: 60.0 },
+      { id: 3, name: 'Carteira', quantity: 5, unityPrice: 20.0, total: 100.0 },
+    ],
+  },
 ];
 
 export const PAYMENT_METHOD: PaymentMethod[] = [
