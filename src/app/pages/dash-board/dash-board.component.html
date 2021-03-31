@@ -24,15 +24,17 @@
 </div>
 
 <modal [title]="'Vendas do mês (01/21)'" #salesRef>
-  <custom-mat-table
-    [displayedColumns]="salesColumns"
+  <generic-list
+    [hasActions]="false"
+    [itemsDisplayedColumns]="salesColumns"
     [tableData]="sales"
-  ></custom-mat-table>
+  ></generic-list>
 </modal>
 
 <modal [title]="'Produtos para repor'" #stockRef>
-  <custom-mat-table
-    [displayedColumns]="stockColumns"
+  <generic-list
+    [hasActions]="false"
+    [itemsDisplayedColumns]="stockColumns"
     [tableData]="productsStock"
-  ></custom-mat-table>
+  ></generic-list>
 </modal>

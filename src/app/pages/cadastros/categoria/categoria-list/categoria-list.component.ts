@@ -1,5 +1,5 @@
-import {ActivatedRoute, Router} from '@angular/router';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CATEGORY_MOCK } from '@app/mocks';
 import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
 
@@ -7,24 +7,20 @@ import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
   templateUrl: './categoria-list.component.html',
   styleUrls: ['./categoria-list.component.scss'],
 })
-
 export class CategoriaListComponent {
   dataSource = CATEGORY_MOCK;
   productColumns: TableColumns<CategoriaListItem> = {
-    id: '#',
-    name: 'Nome',
+    id: { label: '#' },
+    name: { label: 'Nome' },
   };
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
-    handleActions(actionEvent: ActionEvent<CategoriaListItem>) {
-      switch (actionEvent.eventName) {
-        case 'edit':
-          this.edit(actionEvent.item);
-          break;
+  handleActions(actionEvent: ActionEvent<CategoriaListItem>) {
+    switch (actionEvent.eventName) {
+      case 'edit':
+        this.edit(actionEvent.item);
+        break;
       case 'delete':
         this.delete(actionEvent.item);
         break;
@@ -34,13 +30,11 @@ export class CategoriaListComponent {
     }
   }
 
-    edit(item: CategoriaListItem) {
-      this.router.navigate([`cadastros/categoria/edit/${item.id}`]);
-    }
+  edit(item: CategoriaListItem) {
+    this.router.navigate([`cadastros/categoria/edit/${item.id}`]);
+  }
 
-    delete(item: CategoriaListItem) {
-      alert(`Voce deletou a categoria ${item.id} - ${item.name}`);
-    }
+  delete(item: CategoriaListItem) {
+    alert(`Voce deletou a categoria ${item.id} - ${item.name}`);
+  }
 }
-
-

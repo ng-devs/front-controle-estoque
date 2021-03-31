@@ -6,3 +6,14 @@
 .sales {
   @include default-page-padding;
 }
+.header-detail {
+  display: flex;
+
+  &__item {
+    margin-bottom: rem(20);
+  }
+
+  .header-detail__item + .header-detail__item {
+    margin-left: rem(50);
+  }
+}

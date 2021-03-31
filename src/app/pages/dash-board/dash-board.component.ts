@@ -12,16 +12,16 @@ export class DashBoardComponent implements OnInit {
   sales = SALES_MOCK;
 
   stockColumns: TableColumns<ProductStockListItem> = {
-    id: '#',
-    name: 'First Name',
-    quantity: 'Quantidade',
+    id: { label: '#' },
+    name: { label: 'First Name' },
+    quantity: { label: 'Quantidade' },
   };
 
   salesColumns: TableColumns<SaleListItem> = {
-    id: '#',
-    date: 'Data',
-    value: 'Valor',
-    paymentMethod: 'Forma de Pagamento',
+    id: { label: '#' },
+    date: { label: 'Data', pipe: { name: 'date', args: 'dd/MM/yyyy' } },
+    value: { label: 'Valor', pipe: { name: 'currency' } },
+    paymentMethod: { label: 'Forma de Pagamento' },
   };
 
   @ViewChild('stockRef') private stockModalComponent: ModalComponent;

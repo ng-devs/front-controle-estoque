@@ -1,7 +1,7 @@
-import { registerLocaleData } from '@angular/common';
+import { CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,7 +22,6 @@ import {
   AddButtonComponent,
   BreadCrumbComponent,
   CardComponent,
-  CustomMatTableComponent,
   GenericListComponent,
   GridComponent,
   HeaderComponent,
@@ -44,11 +43,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
 import { GenericInputComponent } from './components/generic-input/generic-input.component';
+import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 import { ShowValidationDirective } from './directives/show-validation.directive';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
-import { GenericSelectComponent } from './components/generic-select/generic-select.component';
+import { GenericPipe } from './pipes/generic.pipe';
 
 registerLocaleData(localePt);
 
@@ -61,7 +61,6 @@ registerLocaleData(localePt);
     CardComponent,
     HeaderComponent,
     AddButtonComponent,
-    CustomMatTableComponent,
     GenericListComponent,
     DashBoardComponent,
     ProductsComponent,
@@ -80,6 +79,7 @@ registerLocaleData(localePt);
     GenericInputComponent,
     GenericBaseFormFieldComponent,
     GenericSelectComponent,
+    GenericPipe,
   ],
   imports: [
     BrowserModule,
@@ -106,6 +106,15 @@ registerLocaleData(localePt);
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR',
+    },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    {
+      provide: 'date',
+      useClass: DatePipe,
+    },
+    {
+      provide: 'currency',
+      useClass: CurrencyPipe,
     },
   ],
   bootstrap: [AppComponent],
