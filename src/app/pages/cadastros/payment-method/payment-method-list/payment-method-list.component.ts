@@ -10,9 +10,10 @@ import { Observable, of } from 'rxjs';
 })
 export class PaymentMethodListComponent implements OnInit {
   dataSource: Observable<PaymentMethod[]>;
+
   productColumns: TableColumns<PaymentMethod> = {
-    id: '#',
-    description: 'Descrição',
+    id: { label: '#' },
+    description: { label: 'Descrição' },
   };
 
   constructor(private router: Router, private route: ActivatedRoute) {}

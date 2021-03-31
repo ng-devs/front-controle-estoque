@@ -8,6 +8,7 @@ import { Action, ActionEvent } from '@app/models';
 })
 export class GenericListComponent<T> {
   @Input() hasDefaultActions = true;
+  @Input() hasActions = true;
   @Input() tableData: T[];
   @Output() actionEvent = new EventEmitter<ActionEvent<T>>();
 
@@ -15,7 +16,7 @@ export class GenericListComponent<T> {
   set itemsDisplayedColumns(items: any) {
     this._itemsDisplayedColumns = {
       ...items,
-      actions: items['actions'] ?? 'Ações',
+      ...(this.hasActions && { actions: items['actions'] ?? 'Ações' }),
     };
   }
   get itemsDisplayedColumns() {

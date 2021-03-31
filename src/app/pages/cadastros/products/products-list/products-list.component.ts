@@ -10,11 +10,11 @@ export class ProductsListComponent implements OnInit {
   dataSource = PRODUCTS_SOLD_MOCK;
 
   productColumns: TableColumns<ProductSoldListItem> = {
-    id: '#',
-    name: 'Nome',
-    category: 'Categoria',
-    quantity: 'Quantidade',
-    price: 'Preço',
+    id: { label: '#' },
+    name: { label: 'Nome' },
+    category: { label: 'Categoria' },
+    quantity: { label: 'Quantidade' },
+    price: { label: 'Preço', pipe: { name: 'currency' } },
   };
 
   customActions: Action[] = [
