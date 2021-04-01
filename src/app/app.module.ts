@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -49,8 +50,24 @@ import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/catego
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
 import { GenericPipe } from './pipes/generic.pipe';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
+import { AlertComponent } from './components/alert/alert.component';
 registerLocaleData(localePt);
+
+export const customCurrencyMaskConfig: CurrencyMaskConfig = {
+  align: "right",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: ".",
+  nullable: true,
+  inputMode: CurrencyMaskInputMode.FINANCIAL
+};
 
 @NgModule({
   declarations: [
@@ -80,6 +97,7 @@ registerLocaleData(localePt);
     GenericBaseFormFieldComponent,
     GenericSelectComponent,
     GenericPipe,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,8 +116,12 @@ registerLocaleData(localePt);
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     MatSortModule,
     MatDialogModule,
+    MatNativeDateModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
+
   ],
 
   providers: [
