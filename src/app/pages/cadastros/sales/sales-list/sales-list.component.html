@@ -1,15 +1,51 @@
 <div class="sales">
   <bread-crumb [primaryText]="'Vendas'"></bread-crumb>
-  <add-button (clickEvent)="add()">Venda</add-button>
+  <div class="header-actions" fxLayout fxLayoutAlign="space-between center">
+    <add-button (clickEvent)="add()">Venda</add-button>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="20px">
+      <div
+        fxFlex
+        fxLayout
+        fxLayoutAlign="flex-end center"
+        fxLayoutGap="10px"
+        [formGroup]="filterGroup"
+      >
+        <mat-form-field @displayFilter *ngIf="displayCalendar">
+          <mat-label></mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="" formControlName="dataStart" />
+            <input
+              (dateInput)="filtrarData()"
+              matEndDate
+              placeholder=""
+              formControlName="dataEnd"
+            />
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
 
-  <generic-list
-    (actionEvent)="showDetails($event)"
-    [tableData]="dataSource"
-    [itemsDisplayedColumns]="productColumns"
-    [actions]="customActions"
-    [hasDefaultActions]="false"
-  >
-  </generic-list>
+        <mat-form-field @displayFilter *ngIf="displayValor">
+          <input matInput currencyMask placeholder="Valor inicial" formControlName="valorStart" />
+        </mat-form-field>
+        <mat-form-field @displayFilter *ngIf="displayValor">
+          <input matInput currencyMask placeholder="Valor final" formControlName="valorEnd" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-icon (click)="displayFilterRangeDate()">calendar_today</mat-icon>
+        <mat-icon (click)="displayFilterRangeValue()">filter_alt</mat-icon>
+      </div>
+    </div>
+  </div>
+    <generic-list
+      (actionEvent)="showDetails($event)"
+      [tableData]="dataSource"
+      [itemsDisplayedColumns]="productColumns"
+      [actions]="customActions"
+      [hasDefaultActions]="false"
+    >
+    </generic-list>
 </div>
 <modal #salesRef title="{{ 'Detalhes da venda ' + currentSaleListItem?.id }}">
   <div class="header-detail">
