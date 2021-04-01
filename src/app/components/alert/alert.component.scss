@@ -1,0 +1,18 @@
+:host {
+  width: 100%;
+}
+
+.alert {
+  width: max-content;
+  padding: 20px 60px;
+  border-radius: 5px;
+  margin: 20px;
+  &--success {
+    background-color: #D4EDDA;
+    color: #155724;
+  }
+  &--error {
+    background-color: #F8D7DA;
+    color: #721C24;
+  }
+}
