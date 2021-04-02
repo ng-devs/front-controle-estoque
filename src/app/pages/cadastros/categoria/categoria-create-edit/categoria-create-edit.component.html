@@ -1,8 +1,8 @@
 <div class="categoria">
-  <bread-crumb
+  <ngd-bread-crumb
     [primaryText]="'Cadastros'"
     [secondaryText]="'Categoria'"
-  ></bread-crumb>
+  ></ngd-bread-crumb>
   <h2>{{ isEditMode ? 'Editar Categoria' : 'Adicionar Categoria' }}</h2>
   <div class="cadcategoria">
     <form
@@ -12,17 +12,17 @@
       fxLayoutGap="20px"
     >
       <section class="payment-method__fields" fxLayout="row">
-        <generic-input
+        <ngd-generic-input
           controlName="id"
           [hasLabel]="false"
           type="number"
           [placeholder]="'ID'"
-        ></generic-input>
-        <generic-input
+        ></ngd-generic-input>
+        <ngd-generic-input
           controlName="name"
           type="text"
           label="Categoria"
-        ></generic-input>
+        ></ngd-generic-input>
       </section>
       <div fxLayoutGap="10px">
         <button

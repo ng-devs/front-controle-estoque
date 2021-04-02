@@ -1,9 +1,9 @@
-<abstract-template-crud>
+<ngd-abstract-template-crud>
   <ng-template #breadcrumb>
-    <bread-crumb
+    <ngd-bread-crumb
       [primaryText]="'Cadastros'"
       [secondaryText]="'Categoria'"
-    ></bread-crumb>
+    ></ngd-bread-crumb>
   </ng-template>
 
   <ng-template #headerActions>
@@ -11,11 +11,11 @@
   </ng-template>
 
   <ng-template #grid>
-    <generic-list
+    <ngd-generic-list
       (actionEvent)="handleActions($event)"
       [tableData]="dataSource"
       [itemsDisplayedColumns]="productColumns"
     >
-    </generic-list>
+    </ngd-generic-list>
   </ng-template>
-</abstract-template-crud>
+</ngd-abstract-template-crud>

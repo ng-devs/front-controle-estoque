@@ -1,10 +1,10 @@
-<abstract-template-crud>
+<ngd-abstract-template-crud>
   <ng-template #breadcrumb>
-    <bread-crumb [primaryText]="'Vendas'"></bread-crumb>
+    <ngd-bread-crumb [primaryText]="'Vendas'"></ngd-bread-crumb>
   </ng-template>
 
   <ng-template #headerActions>
-    <add-button (clickEvent)="add()">Venda</add-button>
+    <ngd-add-button (clickEvent)="add()">Venda</ngd-add-button>
     <div fxFlex fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="20px">
       <div
         fxFlex
@@ -56,18 +56,21 @@
   </ng-template>
 
   <ng-template #grid>
-    <generic-list
+    <ngd-generic-list
       (actionEvent)="showDetails($event)"
       [tableData]="dataSource"
       [itemsDisplayedColumns]="productColumns"
       [actions]="customActions"
       [hasDefaultActions]="false"
     >
-    </generic-list>
+    </ngd-generic-list>
   </ng-template>
-</abstract-template-crud>
+</ngd-abstract-template-crud>
 
-<modal #salesRef title="{{ 'Detalhes da venda ' + currentSaleListItem?.id }}">
+<ngd-modal
+  #salesRef
+  title="{{ 'Detalhes da venda ' + currentSaleListItem?.id }}"
+>
   <div class="header-detail">
     <p class="header-detail__item">
       <strong>Data:</strong>
@@ -83,9 +86,9 @@
     </p>
   </div>
   <h4>Produtos:</h4>
-  <generic-list
+  <ngd-generic-list
     [hasActions]="false"
     #customMatTable
     [itemsDisplayedColumns]="saleProductItemColumns"
-  ></generic-list>
-</modal>
+  ></ngd-generic-list>
+</ngd-modal>

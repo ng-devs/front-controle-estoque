@@ -1,8 +1,8 @@
 <div class="payment-method">
-  <bread-crumb
+  <ngd-bread-crumb
     [primaryText]="'Cadastros'"
     [secondaryText]="'Forma Pagamento'"
-  ></bread-crumb>
+  ></ngd-bread-crumb>
   <h2>
     {{ id ? 'Editar Forma de Pagamento' : 'Cadastrar Forma de Pagamento' }}
   </h2>
@@ -14,17 +14,17 @@
       fxLayoutGap="20px"
     >
       <section class="payment-method__fields" fxLayout="row">
-        <generic-input
+        <ngd-generic-input
           controlName="id"
           [hasLabel]="false"
           type="text"
           [placeholder]="'ID'"
-        ></generic-input>
-        <generic-input
+        ></ngd-generic-input>
+        <ngd-generic-input
           controlName="description"
           type="text"
           label="Descrição"
-        ></generic-input>
+        ></ngd-generic-input>
       </section>
       <div fxLayoutGap="10px">
         <button

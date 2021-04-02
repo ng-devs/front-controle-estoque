@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Action, ActionEvent } from '@app/models';
 
 @Component({
-  selector: 'ngd-list',
+  selector: 'ngd-generic-list',
   templateUrl: './generic-list.component.html',
   styleUrls: ['./generic-list.component.scss'],
 })

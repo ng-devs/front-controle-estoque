@@ -22,7 +22,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AddButtonComponent,
-  BreadCrumbComponent,
   CardComponent,
   GenericListComponent,
   GridComponent,
@@ -40,6 +39,8 @@ import {
   SalesCreateEditComponent,
   SalesListComponent,
 } from '@app/pages';
+import { BreadCrumbComponent } from 'app/components/bread-crumb/bread-crumb.component';
+import { GenericInputComponent } from 'app/components/generic-input/generic-input.component';
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
 import { AVAILABLE_PIPES } from 'app/providers/available-pipes.provider';
 import {
@@ -52,13 +53,13 @@ import { AppComponent } from './app.component';
 import { AbstractTemplateCrudComponent } from './components/abstract-template-crud/abstract-template-crud.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
-import { GenericInputComponent } from './components/generic-input/generic-input.component';
 import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 import { ShowValidationDirective } from './directives/show-validation.directive';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
 import { GenericPipe } from './pipes/generic.pipe';
+
 registerLocaleData(localePt);
 
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
