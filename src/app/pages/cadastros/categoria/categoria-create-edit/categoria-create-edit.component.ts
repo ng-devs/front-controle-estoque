@@ -12,10 +12,14 @@ export class CategoriaCreateEditComponent implements OnInit {
   id: number;
   isEditMode: boolean;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.params['id'];
+    this.id = +this.route.snapshot.params.id;
 
     this.isEditMode = this.id ? true : false;
 
@@ -36,7 +40,9 @@ export class CategoriaCreateEditComponent implements OnInit {
   }
 
   getInfo() {
-    const categoriaSelecionada = CATEGORY_MOCK.find((item) => item.id === this.id);
+    const categoriaSelecionada = CATEGORY_MOCK.find(
+      (item) => item.id === this.id
+    );
 
     this.form.patchValue({
       id: categoriaSelecionada?.id,
@@ -47,6 +53,5 @@ export class CategoriaCreateEditComponent implements OnInit {
   saveCat(form: any): void {
     alert('Categoria salva com sucesso!');
     this.router.navigate(['/cadastros/categoria']);
-    //});
   }
 }

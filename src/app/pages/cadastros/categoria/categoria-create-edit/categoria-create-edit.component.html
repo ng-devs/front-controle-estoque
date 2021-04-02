@@ -1,16 +1,28 @@
 <div class="categoria">
-  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
-  <h2>{{ isEditMode ? "Editar Categoria" : "Adicionar Categoria" }}</h2>
+  <ngd-bread-crumb
+    [primaryText]="'Cadastros'"
+    [secondaryText]="'Categoria'"
+  ></ngd-bread-crumb>
+  <h2>{{ isEditMode ? 'Editar Categoria' : 'Adicionar Categoria' }}</h2>
   <div class="cadcategoria">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutGap="20px"
+    >
       <section class="payment-method__fields" fxLayout="row">
-        <generic-input
+        <ngd-generic-input
           controlName="id"
           [hasLabel]="false"
           type="number"
           [placeholder]="'ID'"
-        ></generic-input>
-        <generic-input controlName="name" type="text" label="Categoria"></generic-input>
+        ></ngd-generic-input>
+        <ngd-generic-input
+          controlName="name"
+          type="text"
+          label="Categoria"
+        ></ngd-generic-input>
       </section>
       <div fxLayoutGap="10px">
         <button
@@ -21,7 +33,11 @@
         >
           Salvar
         </button>
-        <button mat-raised-button routerLink="/cadastros/categoria" class="cancelar">
+        <button
+          mat-raised-button
+          routerLink="/cadastros/categoria"
+          class="cancelar"
+        >
           Cancelar
         </button>
       </div>

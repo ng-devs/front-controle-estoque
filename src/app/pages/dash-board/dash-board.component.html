@@ -2,7 +2,7 @@
   <h1 class="dashboard__title">Dashboard</h1>
   <mat-divider class="dashboard__divider"></mat-divider>
   <div class="dashboard__cards-container">
-    <card
+    <ngd-card
       [title]="'Vendas no mês'"
       [extraData]="'01/2021'"
       [value]="50"
@@ -10,31 +10,31 @@
       [contentColor]="'#17A2B8'"
       [btnText]="'Ver detalhes'"
       (btnEvent)="showSalesDetails()"
-    ></card>
-    <card
+    ></ngd-card>
+    <ngd-card
       [title]="'Produtos para repor'"
       [value]="12"
       [btnBgColor]="'#EB5757'"
       [btnText]="'Ver detalhes'"
       [contentColor]="'#DC3545'"
       (btnEvent)="showProductsStockDetails()"
-    ></card>
+    ></ngd-card>
   </div>
-  <app-grid></app-grid>
+  <ngd-grid></ngd-grid>
 </div>
 
-<modal [title]="'Vendas do mês (01/21)'" #salesRef>
-  <generic-list
+<ngd-modal [title]="'Vendas do mês (01/21)'" #salesRef>
+  <ngd-generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="salesColumns"
     [tableData]="sales"
-  ></generic-list>
-</modal>
+  ></ngd-generic-list>
+</ngd-modal>
 
-<modal [title]="'Produtos para repor'" #stockRef>
-  <generic-list
+<ngd-modal [title]="'Produtos para repor'" #stockRef>
+  <ngd-generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="stockColumns"
     [tableData]="productsStock"
-  ></generic-list>
-</modal>
+  ></ngd-generic-list>
+</ngd-modal>

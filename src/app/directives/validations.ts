@@ -30,11 +30,13 @@ export const VALIDATIONS = [
   },
   {
     errorName: 'lowerCaseCharacter',
-    messageFn: (control: AbstractControl) => control?.errors?.lowerCaseCharacter,
+    messageFn: (control: AbstractControl) =>
+      control?.errors?.lowerCaseCharacter,
   },
   {
     errorName: 'pascalCaseCharacter',
-    messageFn: (control: AbstractControl) => control?.errors?.pascalCaseCharacter,
+    messageFn: (control: AbstractControl) =>
+      control?.errors?.pascalCaseCharacter,
   },
 
   {

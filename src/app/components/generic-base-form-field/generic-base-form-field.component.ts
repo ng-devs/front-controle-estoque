@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, ControlContainer, FormControl, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlContainer,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 
 @Component({
   template: '',
@@ -23,12 +28,17 @@ export class GenericBaseFormFieldComponent implements OnInit {
 
   ngOnInit() {
     const formGroup = this.container.control as FormGroup;
-    this.controlRef = this.controlRef || (formGroup.controls[this.controlName] as FormControl);
+    this.controlRef =
+      this.controlRef || (formGroup.controls[this.controlName] as FormControl);
     this.controlName = this.controlName || this.getControlName(this.controlRef);
   }
 
   getControlName(control: AbstractControl): string {
-    const formGroup = control?.parent!;
-    return Object.keys(formGroup.controls).find((name) => control === formGroup.get(name))!;
+    const formGroup = control?.parent;
+    return (
+      Object.keys(formGroup?.controls || {}).find(
+        (name) => control === formGroup?.get(name)
+      ) || ''
+    );
   }
 }

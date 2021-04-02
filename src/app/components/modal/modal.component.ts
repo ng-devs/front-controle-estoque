@@ -2,7 +2,7 @@ import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'modal',
+  selector: 'ngd-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })

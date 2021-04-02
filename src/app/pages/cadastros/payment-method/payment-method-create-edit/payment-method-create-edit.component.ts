@@ -14,19 +14,25 @@ export class PaymentMethodCreateEditComponent implements OnInit {
   id: number;
 
   private currentAction: 'create' | 'update' = 'create';
-  private actions = { create: this.createPaymentMethod, update: this.updatePaymentMethod };
+  private actions = {
+    create: this.createPaymentMethod,
+    update: this.updatePaymentMethod,
+  };
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.createForm();
-    (this.id = +this.route.snapshot.params['id']) && this.load();
+    (this.id = +this.route.snapshot.params.id) && this.load();
   }
 
   createForm() {
     this.form = new FormGroup({
       id: new FormControl({ value: '', disabled: true }),
-      description: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      description: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
     });
   }
 
@@ -34,7 +40,9 @@ export class PaymentMethodCreateEditComponent implements OnInit {
     this.currentAction = 'update';
     of(PAYMENT_METHOD.find((item) => item.id === this.id)).subscribe(
       (paymentMethod: PaymentMethod | undefined) => {
-        if (!paymentMethod) throw new Error('Forma de pagamento não foi localizada');
+        if (!paymentMethod) {
+          throw new Error('Forma de pagamento não foi localizada');
+        }
         const { id, description } = paymentMethod;
         this.form.patchValue({ id, description });
       }

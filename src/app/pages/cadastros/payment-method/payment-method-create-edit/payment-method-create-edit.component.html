@@ -1,23 +1,30 @@
 <div class="payment-method">
-  <bread-crumb
+  <ngd-bread-crumb
     [primaryText]="'Cadastros'"
     [secondaryText]="'Forma Pagamento'"
-  ></bread-crumb>
-  <h2>{{ id ? "Editar Forma de Pagamento" : "Cadastrar Forma de Pagamento" }}</h2>
+  ></ngd-bread-crumb>
+  <h2>
+    {{ id ? 'Editar Forma de Pagamento' : 'Cadastrar Forma de Pagamento' }}
+  </h2>
   <div class="">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutGap="20px"
+    >
       <section class="payment-method__fields" fxLayout="row">
-        <generic-input
+        <ngd-generic-input
           controlName="id"
           [hasLabel]="false"
           type="text"
           [placeholder]="'ID'"
-        ></generic-input>
-        <generic-input
+        ></ngd-generic-input>
+        <ngd-generic-input
           controlName="description"
           type="text"
           label="Descrição"
-        ></generic-input>
+        ></ngd-generic-input>
       </section>
       <div fxLayoutGap="10px">
         <button
@@ -31,7 +38,9 @@
         >
           Salvar
         </button>
-        <button mat-raised-button (click)="goBack()" class="cancelar">Cancelar</button>
+        <button mat-raised-button (click)="goBack()" class="cancelar">
+          Cancelar
+        </button>
       </div>
     </form>
   </div>

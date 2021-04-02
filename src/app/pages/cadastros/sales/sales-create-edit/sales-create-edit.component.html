@@ -8,7 +8,7 @@
         *ngFor="let item of products.controls; let pointIndex = index"
         [formGroupName]="pointIndex"
       >
-        <generic-select
+        <ngd-generic-select
           (changeSelect)="selectedItem($event, item)"
           class="form__field form__field--full column-2 row-1"
           [label]="'Selecione o produto'"
@@ -16,16 +16,16 @@
           [items]="productsList"
           keyName="id"
           valueName="name"
-        ></generic-select>
+        ></ngd-generic-select>
 
-        <generic-input
+        <ngd-generic-input
           class="form__field form__field--full column-2 row-1"
           [label]="'Quantidade'"
           controlName="quantity"
           [type]="'number'"
           [placeholder]="'digite a quantidade de produtos'"
         >
-        </generic-input>
+        </ngd-generic-input>
 
         <div class="form__icons column-3 row-1">
           <button
@@ -49,14 +49,14 @@
       </div>
     </div>
 
-    <generic-select
+    <ngd-generic-select
       class="form__field form__field--full column-2 row-1"
       [label]="'Selecione a forma de pagamento'"
       controlName="paymentForm"
       [items]="paymentMethods"
       keyName="id"
       valueName="description"
-    ></generic-select>
+    ></ngd-generic-select>
 
     <div class="sales__buttons column-1 row-3">
       <button
@@ -68,7 +68,11 @@
       >
         Salvar
       </button>
-      <button type="reset" mat-raised-button class="form__button form__button--cancel">
+      <button
+        type="reset"
+        mat-raised-button
+        class="form__button form__button--cancel"
+      >
         Cancelar
       </button>
     </div>

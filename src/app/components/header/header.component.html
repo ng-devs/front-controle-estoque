@@ -6,23 +6,50 @@
   </span>
 
   <div class="spacer"></div>
-  <a class="header__link" mat-button routerLink="/dashboard" routerLinkActive="active"
+  <a
+    class="header__link"
+    mat-button
+    routerLink="/dashboard"
+    routerLinkActive="active"
     >Dashboard</a
   >
-  <a class="header__link" mat-button routerLink="/vendas" routerLinkActive="active" r
+  <a
+    class="header__link"
+    mat-button
+    routerLink="/vendas"
+    routerLinkActive="active"
+    r
     >Vendas +</a
   >
-  <a class="header__link" mat-button routerLink="/cadastros" routerLinkActive="active"
+  <a
+    class="header__link"
+    mat-button
     [matMenuTriggerFor]="cadastros"
-    >Cadastros ▾</a>
+    [ngClass]="{
+      active: category.isActive || products.isActive || paymentForm.isActive
+    }"
+    >Cadastros ▾</a
+  >
   <mat-menu #cadastros="matMenu">
-    <a mat-menu-item routerLink="/cadastros/categoria" routerLinkActive="active"
+    <a
+      #category="routerLinkActive"
+      mat-menu-item
+      routerLink="/cadastros/categoria"
+      routerLinkActive="active"
       >Categorias</a
     >
-    <a mat-menu-item routerLink="/cadastros/produtos" routerLinkActive="active"
+    <a
+      #products="routerLinkActive"
+      mat-menu-item
+      routerLink="/cadastros/produtos"
+      routerLinkActive="active"
       >Produtos</a
     >
-    <a mat-menu-item routerLink="/cadastros/formas-pagamento" routerLinkActive="active"
+    <a
+      #paymentForm="routerLinkActive"
+      mat-menu-item
+      routerLink="/cadastros/formas-pagamento"
+      routerLinkActive="active"
       >Formas de Pagamento</a
     >
   </mat-menu>

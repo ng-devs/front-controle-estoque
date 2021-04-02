@@ -40,7 +40,9 @@ export class PaymentMethodListComponent implements OnInit {
   }
 
   edit(item: PaymentMethod) {
-    this.router.navigate(['..', 'create-edit', item.id], { relativeTo: this.route });
+    this.router.navigate(['..', 'create-edit', item.id], {
+      relativeTo: this.route,
+    });
   }
 
   delete(item: PaymentMethod) {

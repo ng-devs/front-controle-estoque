@@ -1,10 +1,10 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 export type AlertParams = { message: string; type: 'success' | 'error' };
 
 @Component({
-  selector: 'app-alert',
+  selector: 'ngd-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,7 +39,7 @@ export class AlertComponent {
   @Input()
   params: AlertParams | null;
 
-  get cssClassname(): string {
+  get cssClassName(): string {
     return this.params ? `alert alert--${this.params.type}` : '';
   }
 

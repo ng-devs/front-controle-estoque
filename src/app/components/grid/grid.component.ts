@@ -1,19 +1,25 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import { CustomDataSource, Filter, Pagination, ProdutoFilterProps, ProdutoListItem } from './produto.model';
+import {
+  CustomDataSource,
+  Filter,
+  Pagination,
+  ProdutoFilterProps,
+  ProdutoListItem,
+} from './produto.model';
 import { ProdutoService } from './produto.service';
 
 @Component({
-  selector: 'app-grid',
+  selector: 'ngd-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
 })
 export class GridComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   filtro: FormGroup;
   dataSource: CustomDataSource<ProdutoListItem, ProdutoFilterProps>;
   displayedColumns: string[] = ['id', 'nome', 'categoria', 'quantidade'];
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   constructor(private produtoService: ProdutoService) {}
 

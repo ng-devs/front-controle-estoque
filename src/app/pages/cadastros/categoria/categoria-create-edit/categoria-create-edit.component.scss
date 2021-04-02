@@ -1,7 +1,7 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "functions";
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
 
 .categoria {
   @include default-page-padding;
@@ -11,12 +11,12 @@ section {
   width: 100%;
 }
 
-generic-input:first-of-type {
+ngd-generic-input:first-of-type {
   width: 100px;
   margin-right: rem(20);
 }
 
-generic-input {
+ngd-generic-input {
   width: 100%;
 }
 

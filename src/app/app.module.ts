@@ -6,6 +6,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,12 +18,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AddButtonComponent,
-  BreadCrumbComponent,
   CardComponent,
   GenericListComponent,
   GridComponent,
@@ -39,36 +39,40 @@ import {
   SalesCreateEditComponent,
   SalesListComponent,
 } from '@app/pages';
+import { BreadCrumbComponent } from 'app/components/bread-crumb/bread-crumb.component';
+import { GenericInputComponent } from 'app/components/generic-input/generic-input.component';
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
 import { AVAILABLE_PIPES } from 'app/providers/available-pipes.provider';
+import {
+  CurrencyMaskConfig,
+  CurrencyMaskInputMode,
+  NgxCurrencyModule,
+} from 'ngx-currency';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AbstractTemplateCrudComponent } from './components/abstract-template-crud/abstract-template-crud.component';
+import { AlertComponent } from './components/alert/alert.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
-import { GenericInputComponent } from './components/generic-input/generic-input.component';
 import { GenericSelectComponent } from './components/generic-select/generic-select.component';
 import { ShowValidationDirective } from './directives/show-validation.directive';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
 import { CategoriaComponent } from './pages/cadastros/categoria/categoria.component';
 import { GenericPipe } from './pipes/generic.pipe';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import { MatNativeDateModule } from '@angular/material/core';
-import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
-import { AlertComponent } from './components/alert/alert.component';
-import { AbstractTemplateCrudComponent } from './components/abstract-template-crud/abstract-template-crud.component';
+
 registerLocaleData(localePt);
 
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
-  align: "right",
+  align: 'right',
   allowNegative: true,
   allowZero: true,
-  decimal: ",",
+  decimal: ',',
   precision: 2,
-  prefix: "R$ ",
-  suffix: "",
-  thousands: ".",
+  prefix: 'R$ ',
+  suffix: '',
+  thousands: '.',
   nullable: true,
-  inputMode: CurrencyMaskInputMode.FINANCIAL
+  inputMode: CurrencyMaskInputMode.FINANCIAL,
 };
 
 @NgModule({
@@ -123,8 +127,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     MatSortModule,
     MatDialogModule,
     MatNativeDateModule,
-    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
-
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
   ],
 
   providers: [
