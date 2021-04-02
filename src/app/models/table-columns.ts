@@ -2,7 +2,7 @@ type AvailablePipes = 'currency' | 'date';
 
 interface GenericPipe {
   name: AvailablePipes;
-  args?: any;
+  args?: string[] | string;
 }
 
 interface Column {
