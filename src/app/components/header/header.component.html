@@ -24,19 +24,29 @@
   <a
     class="header__link"
     mat-button
-    routerLink="/cadastros"
-    routerLinkActive="active"
     [matMenuTriggerFor]="cadastros"
+    [ngClass]="{
+      active: category.isActive || products.isActive || paymentForm.isActive
+    }"
     >Cadastros ▾</a
   >
   <mat-menu #cadastros="matMenu">
-    <a mat-menu-item routerLink="/cadastros/categoria" routerLinkActive="active"
+    <a
+      #category="routerLinkActive"
+      mat-menu-item
+      routerLink="/cadastros/categoria"
+      routerLinkActive="active"
       >Categorias</a
     >
-    <a mat-menu-item routerLink="/cadastros/produtos" routerLinkActive="active"
+    <a
+      #products="routerLinkActive"
+      mat-menu-item
+      routerLink="/cadastros/produtos"
+      routerLinkActive="active"
       >Produtos</a
     >
     <a
+      #paymentForm="routerLinkActive"
       mat-menu-item
       routerLink="/cadastros/formas-pagamento"
       routerLinkActive="active"
