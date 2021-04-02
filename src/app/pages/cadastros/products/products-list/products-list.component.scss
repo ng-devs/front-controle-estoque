@@ -1,8 +1,0 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "functions";
-
-.products {
-  @include default-page-padding;
-}

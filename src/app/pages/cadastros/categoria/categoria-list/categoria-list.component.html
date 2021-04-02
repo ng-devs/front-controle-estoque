@@ -1,11 +1,18 @@
-<div class="categoria">
-  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
-  <add-button routerLink="/cadastros/categoria/add">Categoria</add-button>
+<abstract-template-crud>
+  <ng-template #breadcrumb>
+    <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
+  </ng-template>
 
-  <generic-list
-    (actionEvent)="handleActions($event)"
-    [tableData]="dataSource"
-    [itemsDisplayedColumns]="productColumns"
-  >
-  </generic-list>
-</div>
+  <ng-template #headerActions>
+    <add-button routerLink="/cadastros/categoria/add">Categoria</add-button>
+  </ng-template>
+
+  <ng-template #grid>
+    <generic-list
+      (actionEvent)="handleActions($event)"
+      [tableData]="dataSource"
+      [itemsDisplayedColumns]="productColumns"
+    >
+    </generic-list>
+  </ng-template>
+</abstract-template-crud>

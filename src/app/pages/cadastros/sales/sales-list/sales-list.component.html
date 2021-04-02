@@ -1,6 +1,9 @@
-<div class="sales">
-  <bread-crumb [primaryText]="'Vendas'"></bread-crumb>
-  <div class="header-actions" fxLayout fxLayoutAlign="space-between center">
+<abstract-template-crud>
+  <ng-template #breadcrumb>
+    <bread-crumb [primaryText]="'Vendas'"></bread-crumb>
+  </ng-template>
+
+  <ng-template #headerActions>
     <add-button (clickEvent)="add()">Venda</add-button>
     <div fxFlex fxLayout fxLayoutAlign="flex-end center" fxLayoutGap="20px">
       <div
@@ -26,10 +29,20 @@
         </mat-form-field>
 
         <mat-form-field @displayFilter *ngIf="displayValor">
-          <input matInput currencyMask placeholder="Valor inicial" formControlName="valorStart" />
+          <input
+            matInput
+            currencyMask
+            placeholder="Valor inicial"
+            formControlName="valorStart"
+          />
         </mat-form-field>
         <mat-form-field @displayFilter *ngIf="displayValor">
-          <input matInput currencyMask placeholder="Valor final" formControlName="valorEnd" />
+          <input
+            matInput
+            currencyMask
+            placeholder="Valor final"
+            formControlName="valorEnd"
+          />
         </mat-form-field>
       </div>
       <div>
@@ -37,7 +50,9 @@
         <mat-icon (click)="displayFilterRangeValue()">filter_alt</mat-icon>
       </div>
     </div>
-  </div>
+  </ng-template>
+
+  <ng-template #grid>
     <generic-list
       (actionEvent)="showDetails($event)"
       [tableData]="dataSource"
@@ -46,7 +61,9 @@
       [hasDefaultActions]="false"
     >
     </generic-list>
-</div>
+  </ng-template>
+</abstract-template-crud>
+
 <modal #salesRef title="{{ 'Detalhes da venda ' + currentSaleListItem?.id }}">
   <div class="header-detail">
     <p class="header-detail__item">

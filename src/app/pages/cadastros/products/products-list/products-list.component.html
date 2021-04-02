@@ -1,12 +1,19 @@
-<div class="products">
-  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Produtos'"></bread-crumb>
-  <add-button (clickEvent)="add()">Produto</add-button>
+<abstract-template-crud>
+  <ng-template #breadcrumb>
+    <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Produtos'"></bread-crumb>
+  </ng-template>
 
-  <generic-list
-    (actionEvent)="handleActions($event)"
-    [tableData]="dataSource"
-    [itemsDisplayedColumns]="productColumns"
-    [actions]="customActions"
-  >
-  </generic-list>
-</div>
+  <ng-template #headerActions>
+    <add-button (clickEvent)="add()">Produto</add-button>
+  </ng-template>
+
+  <ng-template #grid>
+    <generic-list
+      (actionEvent)="handleActions($event)"
+      [tableData]="dataSource"
+      [itemsDisplayedColumns]="productColumns"
+      [actions]="customActions"
+    >
+    </generic-list>
+  </ng-template>
+</abstract-template-crud>

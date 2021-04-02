@@ -1,8 +1,0 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "functions";
-
-.payment-method {
-  @include default-page-padding;
-}

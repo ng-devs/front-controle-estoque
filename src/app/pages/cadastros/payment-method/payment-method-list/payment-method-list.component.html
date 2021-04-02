@@ -1,14 +1,21 @@
-<div class="payment-method" *ngIf="dataSource | async">
-  <bread-crumb
-    [primaryText]="'Cadastros'"
-    [secondaryText]="'Forma Pagamento'"
-  ></bread-crumb>
-  <add-button (clickEvent)="add()">Forma Pagamento</add-button>
+<abstract-template-crud>
+  <ng-template #breadcrumb>
+    <bread-crumb
+      [primaryText]="'Cadastros'"
+      [secondaryText]="'Forma Pagamento'"
+    ></bread-crumb>
+  </ng-template>
 
-  <generic-list
-    (actionEvent)="handleActions($event)"
-    [tableData]="(dataSource | async)!"
-    [itemsDisplayedColumns]="productColumns"
-  >
-  </generic-list>
-</div>
+  <ng-template #headerActions>
+    <add-button (clickEvent)="add()">Forma Pagamento</add-button>
+  </ng-template>
+
+  <ng-template #grid>
+    <generic-list
+      (actionEvent)="handleActions($event)"
+      [tableData]="(dataSource | async)!"
+      [itemsDisplayedColumns]="productColumns"
+    >
+    </generic-list>
+  </ng-template>
+</abstract-template-crud>
