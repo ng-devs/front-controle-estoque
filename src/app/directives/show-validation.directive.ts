@@ -1,14 +1,22 @@
-import { Directive, ElementRef, Input } from '@angular/core';
-import { AbstractControl, ControlContainer, FormControl, FormGroup } from '@angular/forms';
+import { AfterContentInit, Directive, ElementRef, Input } from '@angular/core';
+import {
+  AbstractControl,
+  ControlContainer,
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
 import { VALIDATIONS } from 'app/directives/validations';
 
 @Directive({
-  selector: '[showValidation]',
+  selector: '[ngdShowValidation]',
 })
-export class ShowValidationDirective {
-  @Input('showValidation') controlName: string;
+export class ShowValidationDirective implements AfterContentInit {
+  @Input('ngdShowValidation') controlName: string;
 
-  constructor(private elementRef: ElementRef, private container: ControlContainer) {}
+  constructor(
+    private elementRef: ElementRef,
+    private container: ControlContainer
+  ) {}
 
   ngAfterContentInit(): void {
     const formGroup = this.container.control as FormGroup;
@@ -31,7 +39,9 @@ export class ShowValidationDirective {
 
   private getErrorMessage(control: AbstractControl): string {
     return (
-      VALIDATIONS.find((validationObj) => control.hasError(validationObj.errorName))?.messageFn(control) || ''
+      VALIDATIONS.find((validationObj) =>
+        control.hasError(validationObj.errorName)
+      )?.messageFn(control) || ''
     );
   }
 }

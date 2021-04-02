@@ -8,6 +8,9 @@ import { ProductStockListItem, SaleListItem, TableColumns } from '@app/models';
   styleUrls: ['./dash-board.component.scss'],
 })
 export class DashBoardComponent implements OnInit {
+  @ViewChild('stockRef') private stockModalComponent: ModalComponent;
+  @ViewChild('salesRef') private salesModalComponent: ModalComponent;
+
   productsStock = PRODUCTS_STOCK_MOCK;
   sales = SALES_MOCK;
 
@@ -23,9 +26,6 @@ export class DashBoardComponent implements OnInit {
     value: { label: 'Valor', pipe: { name: 'currency' } },
     paymentMethod: { label: 'Forma de Pagamento' },
   };
-
-  @ViewChild('stockRef') private stockModalComponent: ModalComponent;
-  @ViewChild('salesRef') private salesModalComponent: ModalComponent;
 
   ngOnInit(): void {}
 

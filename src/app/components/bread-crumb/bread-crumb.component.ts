@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'bread-crumb',
+  selector: 'ngd-bread-crumb',
   templateUrl: './bread-crumb.component.html',
   styleUrls: ['./bread-crumb.component.scss'],
 })

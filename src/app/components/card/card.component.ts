@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'card',
+  selector: 'ngd-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })

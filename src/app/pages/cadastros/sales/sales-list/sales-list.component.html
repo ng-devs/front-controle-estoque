@@ -24,7 +24,10 @@
               formControlName="dataEnd"
             />
           </mat-date-range-input>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
 
@@ -68,7 +71,7 @@
   <div class="header-detail">
     <p class="header-detail__item">
       <strong>Data:</strong>
-      <span> {{ currentSaleListItem?.date | date: "dd/MM/yyyy" }} </span>
+      <span> {{ currentSaleListItem?.date | date: 'dd/MM/yyyy' }} </span>
     </p>
     <p class="header-detail__item">
       <strong>Valor:</strong>

@@ -3,9 +3,16 @@
     [primaryText]="'Cadastros'"
     [secondaryText]="'Forma Pagamento'"
   ></bread-crumb>
-  <h2>{{ id ? "Editar Forma de Pagamento" : "Cadastrar Forma de Pagamento" }}</h2>
+  <h2>
+    {{ id ? 'Editar Forma de Pagamento' : 'Cadastrar Forma de Pagamento' }}
+  </h2>
   <div class="">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      fxLayout="column"
+      fxLayoutGap="20px"
+    >
       <section class="payment-method__fields" fxLayout="row">
         <generic-input
           controlName="id"
@@ -31,7 +38,9 @@
         >
           Salvar
         </button>
-        <button mat-raised-button (click)="goBack()" class="cancelar">Cancelar</button>
+        <button mat-raised-button (click)="goBack()" class="cancelar">
+          Cancelar
+        </button>
       </div>
     </form>
   </div>

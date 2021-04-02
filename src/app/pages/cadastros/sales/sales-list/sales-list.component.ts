@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, forwardRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GenericListComponent, ModalComponent } from '@app/components';
@@ -7,10 +7,10 @@ import { SALES_MOCK } from '@app/mocks';
 import { Action, ActionEvent, SaleListItem, TableColumns } from '@app/models';
 import { SaleProductListItemDetail } from 'app/models/sale-product-list-item-detail';
 import { merge } from 'rxjs';
-import { debounceTime, filter } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'sales-list',
+  selector: 'ngd-sales-list',
   templateUrl: './sales-list.component.html',
   styleUrls: ['./sales-list.component.scss'],
   animations: [
@@ -19,13 +19,17 @@ import { debounceTime, filter } from 'rxjs/operators';
         style({ opacity: 0, transform: 'translateX(-100%)' }),
         animate('100ms', style({ opacity: 1, transform: 'translateX(0)' })),
       ]),
-      transition(':leave', [animate('100ms', style({ opacity: 0, transform: 'translateX(-100%)' }))]),
+      transition(':leave', [
+        animate('100ms', style({ opacity: 0, transform: 'translateX(-100%)' })),
+      ]),
     ]),
   ],
 })
 export class SalesListComponent implements OnInit {
-  @ViewChild('salesRef') private $salesModalComponent: ModalComponent;
-  @ViewChild('customMatTable') private $table: GenericListComponent<SaleProductListItemDetail>;
+  @ViewChild('salesRef')
+  private $salesModalComponent: ModalComponent;
+  @ViewChild('customMatTable')
+  private $table: GenericListComponent<SaleProductListItemDetail>;
   dataSource = SALES_MOCK;
   currentSaleListItem: SaleListItem;
   productColumns: TableColumns<SaleListItem> = {
@@ -51,31 +55,6 @@ export class SalesListComponent implements OnInit {
     total: { label: 'Valor total', pipe: { name: 'currency' } },
   };
 
-  constructor(private router: Router) {
-
-  }
-
-  ngOnInit(): void {
-
-    merge(this.filterGroup.controls.valorStart.valueChanges, this.filterGroup.controls.valorEnd.valueChanges)
-      .pipe(debounceTime(500))
-      .subscribe(() => this.filtrarValor());
-
-    merge(this.filterGroup.controls.dataStart.valueChanges, this.filterGroup.controls.dataEnd.valueChanges)
-      .pipe(debounceTime(500))
-      .subscribe(() => this.filtrarData());
-  }
-
-  add() {
-    this.router.navigateByUrl('vendas/create-edit');
-  }
-
-  showDetails(action: ActionEvent<SaleListItem>) {
-    this.currentSaleListItem = action.item;
-    this.$table.tableData = action.item.products!;
-    this.$salesModalComponent.open();
-  }
-
   displayValor = false;
   displayCalendar = false;
 
@@ -86,11 +65,41 @@ export class SalesListComponent implements OnInit {
     valorEnd: new FormControl('', Validators.required),
   });
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    merge(
+      this.filterGroup.controls.valorStart.valueChanges,
+      this.filterGroup.controls.valorEnd.valueChanges
+    )
+      .pipe(debounceTime(500))
+      .subscribe(() => this.filtrarValor());
+
+    merge(
+      this.filterGroup.controls.dataStart.valueChanges,
+      this.filterGroup.controls.dataEnd.valueChanges
+    )
+      .pipe(debounceTime(500))
+      .subscribe(() => this.filtrarData());
+  }
+
+  add() {
+    this.router.navigateByUrl('vendas/create-edit');
+  }
+
+  showDetails(action: ActionEvent<SaleListItem>) {
+    this.currentSaleListItem = action.item;
+    this.$table.tableData = action.item.products || [];
+    this.$salesModalComponent.open();
+  }
+
   filtrarData() {
     let source = SALES_MOCK;
     const { dataStart, dataEnd } = this.filterGroup.controls;
     if (dataStart.valid && dataEnd.valid) {
-      source = SALES_MOCK.filter((c) => c.date >= dataStart.value && c.date <= dataEnd.value);
+      source = SALES_MOCK.filter(
+        (c) => c.date >= dataStart.value && c.date <= dataEnd.value
+      );
     }
     this.dataSource = source;
   }
@@ -99,7 +108,9 @@ export class SalesListComponent implements OnInit {
     let source = SALES_MOCK;
     const { valorStart, valorEnd } = this.filterGroup.controls;
     if (valorStart.valid && valorEnd.valid) {
-      source = SALES_MOCK.filter((c) => c.value >= +valorStart.value && c.value <= +valorEnd.value);
+      source = SALES_MOCK.filter(
+        (c) => c.value >= +valorStart.value && c.value <= +valorEnd.value
+      );
     }
     this.dataSource = source;
   }
@@ -116,4 +127,3 @@ export class SalesListComponent implements OnInit {
     this.displayCalendar = !this.displayCalendar;
   }
 }
-

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PRODUCTS_SOLD_MOCK } from '@app/mocks';
-import { Action, ActionEvent, ProductSoldListItem, TableColumns } from '@app/models';
+import {
+  Action,
+  ActionEvent,
+  ProductSoldListItem,
+  TableColumns,
+} from '@app/models';
 
 @Component({
   templateUrl: './products-list.component.html',
@@ -56,6 +61,8 @@ export class ProductsListComponent implements OnInit {
   }
 
   addQuantity(item?: ProductSoldListItem) {
-    alert(`Voce adicionou uma quantidade ao produto ${item?.id} - ${item?.name}`);
+    alert(
+      `Voce adicionou uma quantidade ao produto ${item?.id} - ${item?.name}`
+    );
   }
 }

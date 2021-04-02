@@ -15,7 +15,9 @@ export class ProdutoService {
   buscarLista(): Observable<HttpResponse<ProdutoListItem[]>> {
     return of(
       new HttpResponse<ProdutoListItem[]>({
-        body: PRODUTOS_MAIS_VENDIDOS.sort((a,b)=> b.quantidade - a.quantidade),
+        body: PRODUTOS_MAIS_VENDIDOS.sort(
+          (a, b) => b.quantidade - a.quantidade
+        ),
       }).clone({
         headers: new HttpHeaders().set(
           'x-pagination',

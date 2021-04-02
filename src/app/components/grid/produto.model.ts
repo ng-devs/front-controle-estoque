@@ -1,8 +1,8 @@
-import { CollectionViewer } from "@angular/cdk/collections";
-import { DataSource } from "@angular/cdk/table";
-import { HttpParams, HttpResponse } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
-import { finalize } from "rxjs/operators";
+import { CollectionViewer } from '@angular/cdk/collections';
+import { DataSource } from '@angular/cdk/table';
+import { HttpParams, HttpResponse } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 export interface ProdutoFilterProps {
   produtoServicoID?: string;
@@ -40,9 +40,15 @@ export interface Pagination {
 export class CustomDataSource<T, TFilter> implements DataSource<T> {
   private sourceSubject = new BehaviorSubject<T[]>([]);
   private loadingData = new BehaviorSubject<boolean>(false);
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   loading$ = this.loadingData.asObservable();
 
-  constructor(private loadCallback: (filter: Filter<TFilter>) => Observable<HttpResponse<T[]>>) {}
+  constructor(
+    private loadCallback: (
+      filter: Filter<TFilter>
+    ) => Observable<HttpResponse<T[]>>
+  ) {}
 
   loadData(filter: Filter<TFilter>) {
     return new Observable<Pagination>((publisher) => {
@@ -51,7 +57,9 @@ export class CustomDataSource<T, TFilter> implements DataSource<T> {
       this.loadCallback(filter)
         .pipe(finalize(() => this.loadingData.next(false)))
         .subscribe((response: HttpResponse<T[]>) => {
-          const pagination = JSON.parse(response.headers.get('x-pagination') as string) as Pagination;
+          const pagination = JSON.parse(
+            response.headers.get('x-pagination') as string
+          ) as Pagination;
           publisher.next(pagination);
           this.loadingData.next(false);
           return this.sourceSubject.next(response.body as T[]);

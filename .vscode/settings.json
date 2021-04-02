@@ -3,11 +3,21 @@
         "Boleto",
         "Datepicker",
         "Maquiagem",
+        "Servico",
+        "compat",
         "configuracoes",
         "devkit",
         "devs",
+        "eofline",
         "formaspagamento",
+        "linebreak",
         "maxlength",
-        "minlength"
+        "minlength",
+        "multilines",
+        "nospace",
+        "onespace",
+        "paren",
+        "parens",
+        "preconnect"
     ]
 }

@@ -4,7 +4,9 @@
     <span *ngIf="extraData" class="card__date">{{ extraData }}</span>
   </header>
   <div class="card__body">
-    <span class="card__content" [ngStyle]="{ color: contentColor }">{{ value }}</span>
+    <span class="card__content" [ngStyle]="{ color: contentColor }">{{
+      value
+    }}</span>
     <button
       (click)="btnEvent.emit()"
       [ngStyle]="{ 'background-color': btnBgColor }"

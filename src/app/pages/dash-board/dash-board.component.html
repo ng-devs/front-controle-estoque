@@ -20,21 +20,21 @@
       (btnEvent)="showProductsStockDetails()"
     ></card>
   </div>
-  <app-grid></app-grid>
+  <ngd-grid></ngd-grid>
 </div>
 
-<modal [title]="'Vendas do mês (01/21)'" #salesRef>
+<ngd-modal [title]="'Vendas do mês (01/21)'" #salesRef>
   <generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="salesColumns"
     [tableData]="sales"
   ></generic-list>
-</modal>
+</ngd-modal>
 
-<modal [title]="'Produtos para repor'" #stockRef>
+<ngd-modal [title]="'Produtos para repor'" #stockRef>
   <generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="stockColumns"
     [tableData]="productsStock"
   ></generic-list>
-</modal>
+</ngd-modal>
