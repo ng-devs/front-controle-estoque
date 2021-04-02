@@ -55,6 +55,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CurrencyMaskConfig, CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
 import { AlertComponent } from './components/alert/alert.component';
+import { AbstractTemplateCrudComponent } from './components/abstract-template-crud/abstract-template-crud.component';
 registerLocaleData(localePt);
 
 export const customCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -99,6 +100,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     GenericSelectComponent,
     GenericPipe,
     AlertComponent,
+    AbstractTemplateCrudComponent,
   ],
   imports: [
     BrowserModule,
