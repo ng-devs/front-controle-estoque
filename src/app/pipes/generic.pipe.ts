@@ -7,8 +7,8 @@ import { AvailablePipes } from '@app/models';
 export class GenericPipe implements PipeTransform {
   constructor(private injector: Injector) {}
 
-  transform(value: any, requiredPipe: any, pipeArgs: any): any {
-    const pipe = this.injector.get<AvailablePipes & PipeTransform>(requiredPipe);
-    return pipe.transform(value, pipeArgs);
+  transform(value: any, requiredPipe: AvailablePipes, ...pipeArgs: string[]): any {
+    const pipe = this.injector.get<AvailablePipes & PipeTransform>(requiredPipe as any);
+    return pipe.transform(value, ...pipeArgs);
   }
 }
