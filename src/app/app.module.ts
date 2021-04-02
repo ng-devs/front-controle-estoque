@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import localePt from '@angular/common/locales/pt';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
@@ -40,6 +40,7 @@ import {
   SalesListComponent,
 } from '@app/pages';
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
+import { AVAILABLE_PIPES } from 'app/providers/available-pipes.provider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
@@ -130,14 +131,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
       useValue: 'pt-BR',
     },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-    {
-      provide: 'date',
-      useClass: DatePipe,
-    },
-    {
-      provide: 'currency',
-      useClass: CurrencyPipe,
-    },
+    AVAILABLE_PIPES,
   ],
   bootstrap: [AppComponent],
 })
