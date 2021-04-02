@@ -5,7 +5,6 @@ import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
 
 @Component({
   templateUrl: './categoria-list.component.html',
-  styleUrls: ['./categoria-list.component.scss'],
 })
 export class CategoriaListComponent {
   dataSource = CATEGORY_MOCK;

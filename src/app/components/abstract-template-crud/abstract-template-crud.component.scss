@@ -1,0 +1,17 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.container {
+  @include default-page-padding;
+  &__breadcrumb {
+  }
+  &__headerActions {
+    margin-top: rem(10);
+    height: rem(80);
+  }
+  &__content {
+    margin-top: rem(15);
+  }
+}

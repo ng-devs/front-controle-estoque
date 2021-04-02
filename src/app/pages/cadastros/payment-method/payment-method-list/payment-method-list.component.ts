@@ -6,7 +6,6 @@ import { Observable, of } from 'rxjs';
 
 @Component({
   templateUrl: './payment-method-list.component.html',
-  styleUrls: ['./payment-method-list.component.scss'],
 })
 export class PaymentMethodListComponent implements OnInit {
   dataSource: Observable<PaymentMethod[]>;

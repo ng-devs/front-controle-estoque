@@ -1,11 +1,5 @@
-@import "colors";
-@import "variables";
-@import "mixins";
 @import "functions";
 
-.sales {
-  @include default-page-padding;
-}
 .header-detail {
   display: flex;
 
@@ -18,16 +12,11 @@
   }
 }
 
-.header-actions {
-  height: 80px;
-}
-
 mat-icon {
   transition: transform 0.3s;
 }
 
 mat-icon:hover {
   cursor: pointer;
-  // transform: scale(1.1);
   transition: transform 0.2s;
 }

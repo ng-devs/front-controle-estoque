@@ -4,7 +4,6 @@ import { Action, ActionEvent, ProductSoldListItem, TableColumns } from '@app/mod
 
 @Component({
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
   dataSource = PRODUCTS_SOLD_MOCK;
