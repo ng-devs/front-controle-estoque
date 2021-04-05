@@ -1,1 +1,63 @@
-<p>products-create-edit works!</p>
+<div class="categoria">
+  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Produtos'"></bread-crumb>
+  <h2>{{ isEditMode ? "Editar Produto" : "Adicionar Produto" }}</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="20px">
+    <section class="payment-method__fields" fxLayout="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-1 col-md-3 idprod">
+            <generic-input class="form__field form__field--full column-1 row-1 idprod" controlName="id"
+              [hasLabel]="false" type="number" [placeholder]="'ID'">
+            </generic-input>
+          </div>
+          <div class="col-1 col-md-4 catprod">
+            <generic-select
+              class="form__field form__field--full column-2 row-1 catprod"
+              [label]="'Selecione a Categoria'"
+              controlName="category"
+              [items]="categoryList"
+              keyName="id"
+              valueName="name"
+            ></generic-select>
+          </div>
+          <!-- <div class="col-1 col-md-4 catprod">
+            <generic-input class="form__field form__field--full column-2 row-1" controlName="category" type="text"
+              label="Categoria">
+            </generic-input>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-1 col-md-9 nomeprod">
+            <generic-input class="form__field form__field--full column-1 row-2" controlName="name" type="text"
+              label="Nome">
+            </generic-input>
+          </div>
+          <div class="col-2 col-md-4 qtdprod">
+            <generic-input class="form__field form__field--full column-2 row-2" controlName="quantity" type="number"
+              label="Quantidade">
+            </generic-input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 col-md-4">
+            <generic-input class="" controlName="identidade" type="number"></generic-input>
+          </div>
+          <div class="col-3 col-md-4 precoprod">
+            <generic-input class="form__field form__field--full column-3 row-2" controlName="price" type="number"
+              label="Preço R$">
+            </generic-input>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div fxLayoutGap="10px">
+      <button mat-raised-button (click)="saveProd(id)" class="salvar" [disabled]="productForm.invalid">
+        Salvar
+      </button>
+      <button mat-raised-button routerLink="/cadastros/produtos" class="cancelar">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

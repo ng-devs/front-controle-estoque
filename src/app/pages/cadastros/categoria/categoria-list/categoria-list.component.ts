@@ -9,6 +9,7 @@ import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
 })
 export class CategoriaListComponent {
   dataSource = CATEGORY_MOCK;
+
   productColumns: TableColumns<CategoriaListItem> = {
     id: { label: '#' },
     name: { label: 'Nome' },

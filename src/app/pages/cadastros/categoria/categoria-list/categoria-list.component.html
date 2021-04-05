@@ -1,6 +1,9 @@
 <div class="categoria">
-  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'"></bread-crumb>
-  <add-button routerLink="/cadastros/categoria/add">Categoria</add-button>
+  <bread-crumb [primaryText]="'Cadastros'" [secondaryText]="'Categoria'">
+  </bread-crumb>
+    <div class="header-actions" fxLayout fxLayoutAlign="space-between center">
+      <add-button routerLink="/cadastros/categoria/add">Categoria</add-button>
+    </div>
 
   <generic-list
     (actionEvent)="handleActions($event)"
