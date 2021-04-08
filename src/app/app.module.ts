@@ -54,6 +54,7 @@ import { AbstractTemplateCrudComponent } from './components/abstract-template-cr
 import { AlertComponent } from './components/alert/alert.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
 import { GenericSelectComponent } from './components/generic-select/generic-select.component';
+import { SetReadOnlyValueDirective } from './directives/set-readonly-value.directive';
 import { ShowValidationDirective } from './directives/show-validation.directive';
 import { CategoriaCreateEditComponent } from './pages/cadastros/categoria/categoria-create-edit/categoria-create-edit.component';
 import { CategoriaListComponent } from './pages/cadastros/categoria/categoria-list/categoria-list.component';
@@ -105,6 +106,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     GenericPipe,
     AlertComponent,
     AbstractTemplateCrudComponent,
+    SetReadOnlyValueDirective,
   ],
   imports: [
     BrowserModule,
