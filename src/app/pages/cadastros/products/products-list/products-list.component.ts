@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PRODUCTS_SOLD_MOCK, CATEGORY_MOCK } from '@app/mocks';
+import { Router } from '@angular/router';
+import { PRODUCTS_SOLD_MOCK } from '@app/mocks';
 import {
   Action,
   ActionEvent,
@@ -30,9 +30,9 @@ export class ProductsListComponent implements OnInit {
     },
   ];
 
-  ngOnInit(): void {}
+  constructor(private router: Router) {}
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit(): void {}
 
   handleActions(actionEvent: ActionEvent<ProductSoldListItem>) {
     switch (actionEvent.eventName) {
