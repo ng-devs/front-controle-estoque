@@ -1,0 +1,61 @@
+@import "colors";
+@import "variables";
+@import "mixins";
+@import "functions";
+
+.produtos {
+  @include default-page-padding;
+}
+
+generic-input:first-of-type {
+  width: 100px;
+  margin-right: rem(20);
+}
+
+generic-input {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+button.salvar {
+  background-color: #2fb82f;
+  color: #ffffff;
+}
+
+.container{
+  display: flex;
+}
+
+div.idprod{
+  width: 50px;
+}
+
+div.nomeprod{
+  width: 1200px;
+  margin-left: -350px;
+}
+
+div.catprod{
+  width: 400px;
+  margin-right: 20px;
+}
+
+div.qtdprod{
+  width: 400px;
+}
+
+div.precoprod{
+  width: 430px;
+  margin-top: 89px;
+  margin-left: -430px;
+  align-items: left;
+}

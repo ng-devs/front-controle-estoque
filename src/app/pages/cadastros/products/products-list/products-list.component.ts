@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PRODUCTS_SOLD_MOCK } from '@app/mocks';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PRODUCTS_SOLD_MOCK, CATEGORY_MOCK } from '@app/mocks';
 import {
   Action,
   ActionEvent,
@@ -31,6 +32,8 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
   handleActions(actionEvent: ActionEvent<ProductSoldListItem>) {
     switch (actionEvent.eventName) {
       case 'add':
@@ -48,12 +51,8 @@ export class ProductsListComponent implements OnInit {
     }
   }
 
-  add() {
-    alert(`Produto adicionado `);
-  }
-
   edit(item: ProductSoldListItem) {
-    alert(`Voce editou o produto ${item.id} - ${item.name}`);
+    this.router.navigate([`cadastros/produtos/edit/${item.id}`]);
   }
 
   delete(item: ProductSoldListItem) {

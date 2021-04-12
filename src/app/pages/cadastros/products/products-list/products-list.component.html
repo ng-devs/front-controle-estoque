@@ -7,7 +7,9 @@
   </ng-template>
 
   <ng-template #headerActions>
-    <ngd-add-button (clickEvent)="add()">Produto</ngd-add-button>
+    <ngd-add-button routerLink="/cadastros/produtos/add">
+      Produto</ngd-add-button
+    >
   </ng-template>
 
   <ng-template #grid>
