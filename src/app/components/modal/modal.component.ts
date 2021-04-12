@@ -8,17 +8,23 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class ModalComponent {
   @Input() public title: string;
-  @Input() public btnCloseText = 'Close';
+  @Input() public btnCloseText = 'Fechar';
+  @Input() public btnConfirmText = 'Sim';
+  @Input() public hasConfirmBtn = false;
   @ViewChild('modal') private modalContent: TemplateRef<ModalComponent>;
   private modalRef: MatDialogRef<any>;
 
   constructor(private dialog: MatDialog) {}
 
-  open() {
+  open(): void {
     this.modalRef = this.dialog.open(this.modalContent);
   }
 
-  close() {
-    this.modalRef.close();
+  confirm(): void {
+    this.modalRef.close(true);
+  }
+
+  close(): void {
+    this.modalRef.close(false);
   }
 }

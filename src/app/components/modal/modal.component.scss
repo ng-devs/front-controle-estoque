@@ -1,7 +1,7 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "functions";
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
 
 $btn-color: #6c757d;
 
@@ -24,9 +24,15 @@ $btn-color: #6c757d;
 
   &__footer {
     margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
 
     &__btn {
-      float: right;
+      &--primary {
+        background-color: $color-primary;
+        margin-right: rem(10);
+      }
+
       font-family: $font-primary;
       font-weight: bold;
       font-size: 16px;
