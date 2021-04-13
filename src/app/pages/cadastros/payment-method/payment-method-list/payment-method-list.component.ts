@@ -1,28 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalComponent } from '@app/components';
 import { PAYMENT_METHOD } from '@app/mocks';
 import { ActionEvent, PaymentMethod, TableColumns } from '@app/models';
-import { Observable, of } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './payment-method-list.component.html',
 })
-export class PaymentMethodListComponent implements OnInit {
-  dataSource: Observable<PaymentMethod[]>;
-
+export class PaymentMethodListComponent implements OnDestroy {
+  @ViewChild('modalRef') private modal: ModalComponent;
+  selectedItem: PaymentMethod;
+  dataSource = PAYMENT_METHOD;
   productColumns: TableColumns<PaymentMethod> = {
     id: { label: '#' },
     description: { label: 'Descrição' },
   };
 
+  private subscription = new Subscription();
+
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.dataSource = of(PAYMENT_METHOD);
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   add() {
-    this.router.navigate(['..', 'create-edit'], { relativeTo: this.route });
+    void this.router.navigate(['..', 'create-edit'], {
+      relativeTo: this.route,
+    });
   }
 
   handleActions(actionEvent: ActionEvent<PaymentMethod>) {
@@ -40,12 +46,23 @@ export class PaymentMethodListComponent implements OnInit {
   }
 
   edit(item: PaymentMethod) {
-    this.router.navigate(['..', 'create-edit', item.id], {
+    void this.router.navigate(['..', 'create-edit', item.id], {
       relativeTo: this.route,
     });
   }
 
   delete(item: PaymentMethod) {
-    alert(`Voce deletou a forma de pagamento ${item.id} - ${item.description}`);
+    this.selectedItem = item;
+    const modalRef = this.modal.open();
+    this.subscription.add(
+      modalRef.afterClosed().subscribe((confirmed) => {
+        if (!confirmed) {
+          return;
+        }
+        this.dataSource = this.dataSource.filter(
+          (paymentMethod) => paymentMethod !== this.selectedItem
+        );
+      })
+    );
   }
 }
