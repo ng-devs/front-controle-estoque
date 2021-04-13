@@ -10,6 +10,8 @@ export class ModalComponent {
   @Input() public title: string;
   @Input() public btnCloseText = 'Fechar';
   @Input() public btnConfirmText = 'Sim';
+  @Input() public maxWidth: string;
+  @Input() public width: string;
   @Input() public hasConfirmBtn = false;
   @ViewChild('modal') private modalContent: TemplateRef<ModalComponent>;
   private modalRef: MatDialogRef<any>;
@@ -17,7 +19,10 @@ export class ModalComponent {
   constructor(private dialog: MatDialog) {}
 
   open() {
-    return (this.modalRef = this.dialog.open(this.modalContent));
+    return (this.modalRef = this.dialog.open(this.modalContent, {
+      maxWidth: this.maxWidth || '',
+      width: this.width,
+    }));
   }
 
   confirm(): void {

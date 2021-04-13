@@ -6,7 +6,7 @@
 $btn-color: #6c757d;
 
 .modal {
-  min-width: 763px;
+  min-width: rem(500);
 
   &__title {
     font-family: $font-primary;
@@ -19,7 +19,9 @@ $btn-color: #6c757d;
   &__body {
     margin-top: 10px;
     padding-top: 20px;
+    padding-bottom: 45px;
     border-top: 2px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
   }
 
   &__footer {
