@@ -46,7 +46,10 @@ export class CategoriaListComponent implements OnDestroy {
     this.selectedItem = item;
     const modalRef = this.modal.open();
     this.subscription.add(
-      modalRef.afterClosed().subscribe(() => {
+      modalRef.afterClosed().subscribe((confirmed) => {
+        if (!confirmed) {
+          return;
+        }
         this.dataSource = this.dataSource.filter(
           (category) => category !== this.selectedItem
         );

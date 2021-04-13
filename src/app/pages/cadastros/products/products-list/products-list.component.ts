@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalComponent } from '@app/components';
 import { PRODUCTS_SOLD_MOCK } from '@app/mocks';
 import {
   Action,
@@ -7,13 +8,15 @@ import {
   ProductSoldListItem,
   TableColumns,
 } from '@app/models';
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './products-list.component.html',
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent implements OnInit, OnDestroy {
+  @ViewChild('modalRef') private modal: ModalComponent;
   dataSource = PRODUCTS_SOLD_MOCK;
-
+  selectedItem: ProductSoldListItem;
   productColumns: TableColumns<ProductSoldListItem> = {
     id: { label: '#' },
     name: { label: 'Nome' },
@@ -30,7 +33,13 @@ export class ProductsListComponent implements OnInit {
     },
   ];
 
+  private subscription = new Subscription();
+
   constructor(private router: Router) {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {}
 
@@ -56,7 +65,19 @@ export class ProductsListComponent implements OnInit {
   }
 
   delete(item: ProductSoldListItem) {
-    alert(`Voce deletou o produto ${item.id} - ${item.name}`);
+    this.selectedItem = item;
+    const modalRef = this.modal.open();
+    this.subscription.add(
+      modalRef.afterClosed().subscribe((confirmed) => {
+        if (!confirmed) {
+          return;
+        }
+
+        this.dataSource = this.dataSource.filter(
+          (category) => category !== this.selectedItem
+        );
+      })
+    );
   }
 
   addQuantity(item?: ProductSoldListItem) {
