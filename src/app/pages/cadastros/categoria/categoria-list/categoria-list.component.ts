@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalComponent } from '@app/components';
 import { CATEGORY_MOCK } from '@app/mocks';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   templateUrl: './categoria-list.component.html',
 })
-export class CategoriaListComponent {
+export class CategoriaListComponent implements OnDestroy {
   @ViewChild('modalRef') private modal: ModalComponent;
   dataSource = CATEGORY_MOCK;
   selectedItem: CategoriaListItem;
@@ -19,6 +19,10 @@ export class CategoriaListComponent {
   private subscription = new Subscription();
 
   constructor(private router: Router) {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   handleActions(actionEvent: ActionEvent<CategoriaListItem>) {
     switch (actionEvent.eventName) {
