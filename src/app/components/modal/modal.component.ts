@@ -16,8 +16,8 @@ export class ModalComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  open(): void {
-    this.modalRef = this.dialog.open(this.modalContent);
+  open() {
+    return (this.modalRef = this.dialog.open(this.modalContent));
   }
 
   confirm(): void {
