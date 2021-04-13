@@ -21,3 +21,10 @@
     </ngd-generic-list>
   </ng-template>
 </ngd-abstract-template-crud>
+<ngd-modal
+  [title]="'Excluir Categoria ' + selectedItem?.id"
+  #modalRef
+  [hasConfirmBtn]="true"
+>
+  <span>Deseja realmente excluir a categoria {{ selectedItem?.name }}</span>
+</ngd-modal>

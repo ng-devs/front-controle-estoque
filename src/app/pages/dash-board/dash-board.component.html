@@ -23,7 +23,7 @@
   <ngd-grid></ngd-grid>
 </div>
 
-<ngd-modal [title]="'Vendas do mês (01/21)'" #salesRef>
+<ngd-modal [width]="'750px'" [title]="'Vendas do mês (01/21)'" #salesRef>
   <ngd-generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="salesColumns"
@@ -31,7 +31,7 @@
   ></ngd-generic-list>
 </ngd-modal>
 
-<ngd-modal [title]="'Produtos para repor'" #stockRef>
+<ngd-modal [width]="'750px'" [title]="'Produtos para repor'" #stockRef>
   <ngd-generic-list
     [hasActions]="false"
     [itemsDisplayedColumns]="stockColumns"

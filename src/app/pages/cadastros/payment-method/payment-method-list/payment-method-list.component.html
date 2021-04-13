@@ -13,9 +13,19 @@
   <ng-template #grid>
     <ngd-generic-list
       (actionEvent)="handleActions($event)"
-      [tableData]="(dataSource | async)!"
+      [tableData]="dataSource"
       [itemsDisplayedColumns]="productColumns"
     >
     </ngd-generic-list>
   </ng-template>
 </ngd-abstract-template-crud>
+<ngd-modal
+  [title]="'Excluir Forma de pagamento ' + selectedItem?.id"
+  #modalRef
+  [hasConfirmBtn]="true"
+>
+  <span
+    >Deseja realmente excluir a Forma de pagamento
+    {{ selectedItem?.description }} ?</span
+  >
+</ngd-modal>

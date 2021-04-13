@@ -7,6 +7,14 @@
       <ng-content></ng-content>
     </div>
     <div class="modal__footer">
+      <button
+        *ngIf="hasConfirmBtn"
+        class="modal__footer__btn modal__footer__btn--primary"
+        mat-raised-button
+        (click)="confirm()"
+      >
+        {{ btnConfirmText }}
+      </button>
       <button class="modal__footer__btn" mat-raised-button (click)="close()">
         {{ btnCloseText }}
       </button>

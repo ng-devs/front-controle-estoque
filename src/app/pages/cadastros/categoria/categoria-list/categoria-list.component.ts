@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalComponent } from '@app/components';
 import { CATEGORY_MOCK } from '@app/mocks';
 import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './categoria-list.component.html',
 })
-export class CategoriaListComponent {
+export class CategoriaListComponent implements OnDestroy {
+  @ViewChild('modalRef') private modal: ModalComponent;
   dataSource = CATEGORY_MOCK;
+  selectedItem: CategoriaListItem;
   productColumns: TableColumns<CategoriaListItem> = {
     id: { label: '#' },
     name: { label: 'Nome' },
   };
+  private subscription = new Subscription();
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private router: Router) {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   handleActions(actionEvent: ActionEvent<CategoriaListItem>) {
     switch (actionEvent.eventName) {
@@ -34,6 +43,17 @@ export class CategoriaListComponent {
   }
 
   delete(item: CategoriaListItem) {
-    alert(`Voce deletou a categoria ${item.id} - ${item.name}`);
+    this.selectedItem = item;
+    const modalRef = this.modal.open();
+    this.subscription.add(
+      modalRef.afterClosed().subscribe((confirmed) => {
+        if (!confirmed) {
+          return;
+        }
+        this.dataSource = this.dataSource.filter(
+          (category) => category !== this.selectedItem
+        );
+      })
+    );
   }
 }
