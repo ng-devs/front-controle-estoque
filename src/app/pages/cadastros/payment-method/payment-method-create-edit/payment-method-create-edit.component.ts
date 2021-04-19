@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PAYMENT_METHOD } from '@app/mocks';
 import { PaymentMethod } from '@app/models';
+import { HotToastService } from '@ngneat/hot-toast';
 import { of } from 'rxjs';
 
 @Component({
@@ -19,7 +20,11 @@ export class PaymentMethodCreateEditComponent implements OnInit {
     update: this.updatePaymentMethod,
   };
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastService: HotToastService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -50,16 +55,20 @@ export class PaymentMethodCreateEditComponent implements OnInit {
   }
 
   createPaymentMethod() {
-    alert('Created successfully');
+    console.log('Created successfully');
   }
 
   updatePaymentMethod() {
-    alert('Update successfully');
+    console.log('Update successfully');
   }
 
   onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
     const callActionFn = this.actions[this.currentAction];
     callActionFn();
+    this.toastService.success('Salvo com sucesso!');
     this.goBack();
   }
 

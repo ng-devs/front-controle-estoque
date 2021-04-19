@@ -39,6 +39,7 @@ import {
   SalesCreateEditComponent,
   SalesListComponent,
 } from '@app/pages';
+import { HotToastModule } from '@ngneat/hot-toast';
 import { BreadCrumbComponent } from 'app/components/bread-crumb/bread-crumb.component';
 import { GenericInputComponent } from 'app/components/generic-input/generic-input.component';
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
@@ -130,6 +131,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     MatDialogModule,
     MatNativeDateModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    HotToastModule.forRoot(),
   ],
 
   providers: [

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PRODUCTS_SOLD_MOCK, CATEGORY_MOCK } from '@app/mocks';
+import { CATEGORY_MOCK, PRODUCTS_SOLD_MOCK } from '@app/mocks';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   templateUrl: './products-create-edit.component.html',
@@ -17,7 +18,8 @@ export class ProductsCreateEditComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastService: HotToastService
   ) {}
 
   ngOnInit(): void {
@@ -58,8 +60,11 @@ export class ProductsCreateEditComponent implements OnInit {
     });
   }
 
-  saveProd(form: any): void {
-    alert('Produto salvo com sucesso!');
+  save(): void {
+    if (this.form.invalid) {
+      return;
+    }
+    this.toastService.success(`Produto salvo com sucesso!`);
     this.router.navigate(['/cadastros/produtos']);
   }
 }

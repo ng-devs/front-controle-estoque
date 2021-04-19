@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PAYMENT_METHOD, PRODUCTS } from '@app/mocks';
+import { HotToastService } from '@ngneat/hot-toast';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -25,7 +26,7 @@ export class SalesCreateEditComponent implements OnInit {
     return this.salesFormGroup.get('products') as FormArray;
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private toastService: HotToastService) {
     this.initializeForm();
   }
 
@@ -56,11 +57,15 @@ export class SalesCreateEditComponent implements OnInit {
     if (this.salesFormGroup.invalid) {
       return;
     }
-    console.log({
+
+    const sale = {
       ...{ date: new Date() },
       ...this.salesFormGroup.value,
       ...{ total: this.getTotalQuantity() },
-    });
+    };
+
+    console.log(sale);
+    this.toastService.success('Venda adicionada com sucesso!');
 
     this.salesFormGroup.reset();
     this.initializeForm();

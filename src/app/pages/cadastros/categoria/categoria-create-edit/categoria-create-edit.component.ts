@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CATEGORY_MOCK } from '@app/mocks';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   templateUrl: './categoria-create-edit.component.html',
@@ -15,7 +16,8 @@ export class CategoriaCreateEditComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastService: HotToastService
   ) {}
 
   ngOnInit(): void {
@@ -50,8 +52,11 @@ export class CategoriaCreateEditComponent implements OnInit {
     });
   }
 
-  saveCat(form: any): void {
-    alert('Categoria salva com sucesso!');
+  save(): void {
+    if (this.form.invalid) {
+      return;
+    }
+    this.toastService.success('Categoria salva com sucesso!');
     this.router.navigate(['/cadastros/categoria']);
   }
 }
