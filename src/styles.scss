@@ -1,8 +1,8 @@
-@import "variables";
-@import "mixins";
-@import "colors";
-@import "material";
-@import "media";
+@import 'variables';
+@import 'mixins';
+@import 'colors';
+@import 'material';
+@import 'media';
 
 @include reset-css;
 
@@ -27,7 +27,8 @@ body {
   font-family: $font-primary;
 }
 
-.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+.mat-form-field-appearance-outline.mat-form-field-disabled
+  .mat-form-field-outline {
   background-color: #cecece;
   border-radius: 5px;
 }

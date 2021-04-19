@@ -1,7 +1,5 @@
 @import 'colors';
-@import 'variables';
 @import 'mixins';
-@import 'functions';
 
 .form {
   &__button {
@@ -19,6 +17,5 @@
 }
 
 button.salvar {
-  background-color: $color-success;
-  color: $color-text-on-success;
+  @include save-button;
 }
