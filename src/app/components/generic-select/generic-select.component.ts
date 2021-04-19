@@ -4,7 +4,6 @@ import { GenericBaseFormFieldComponent } from 'app/components/generic-base-form-
 @Component({
   selector: 'ngd-generic-select',
   templateUrl: './generic-select.component.html',
-  styleUrls: ['./generic-select.component.scss'],
 })
 export class GenericSelectComponent extends GenericBaseFormFieldComponent {
   @Input() items: any[];
