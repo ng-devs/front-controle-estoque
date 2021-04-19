@@ -1,23 +1,31 @@
-<div class="payment-method">
-  <ngd-bread-crumb
-    [primaryText]="'Cadastros'"
-    [secondaryText]="'Forma Pagamento'"
-  ></ngd-bread-crumb>
-  <h2>
-    {{ id ? 'Editar Forma de Pagamento' : 'Cadastrar Forma de Pagamento' }}
-  </h2>
-  <div class="">
+<ngd-abstract-template-create-edit>
+  <ng-template #breadcrumb>
+    <ngd-bread-crumb
+      [primaryText]="'Cadastros'"
+      [secondaryText]="'Forma Pagamento'"
+    ></ngd-bread-crumb>
+  </ng-template>
+
+  <ng-template #actionText>
+    <h2>
+      {{ id ? 'Editar Forma de Pagamento' : 'Cadastrar Forma de Pagamento' }}
+    </h2>
+  </ng-template>
+
+  <ng-template #formArea>
     <form
       [formGroup]="form"
       (ngSubmit)="onSubmit()"
       fxLayout="column"
       fxLayoutGap="20px"
     >
-      <section class="payment-method__fields" fxLayout="row">
+      <section fxLayout="row" fxLayoutGap="20px">
         <ngd-generic-input
+          #inputRef
+          [width]="inputRef.defaultIdWidth"
           controlName="id"
           [hasLabel]="false"
-          type="text"
+          type="number"
           [placeholder]="'ID'"
         ></ngd-generic-input>
         <ngd-generic-input
@@ -29,19 +37,16 @@
       <div fxLayoutGap="10px">
         <button
           mat-raised-button
-          primary
-          type="submit"
-          mat-raised-button
           (click)="onSubmit()"
           class="salvar"
           [disabled]="form.invalid"
         >
           Salvar
         </button>
-        <button mat-raised-button (click)="goBack()" class="cancelar">
+        <button mat-raised-button [routerLink]="['../', 'list']">
           Cancelar
         </button>
       </div>
     </form>
-  </div>
-</div>
+  </ng-template>
+</ngd-abstract-template-create-edit>

@@ -1,80 +1,88 @@
-<div class="sale">
-  <h1 class="sale__title">Vendas</h1>
-  <mat-divider class="sale__divider"></mat-divider>
-  <form novalidate class="form" [formGroup]="salesFormGroup">
-    <div class="form__products" formArrayName="products">
-      <div
-        class="form__product"
-        *ngFor="let item of products.controls; let pointIndex = index"
-        [formGroupName]="pointIndex"
-      >
-        <ngd-generic-select
-          (changeSelect)="selectedItem($event, item)"
-          class="form__field form__field--full column-2 row-1"
-          [label]="'Selecione o produto'"
-          controlName="product"
-          [items]="productsList"
-          keyName="id"
-          valueName="name"
-        ></ngd-generic-select>
+<ngd-abstract-template-create-edit>
+  <ng-template #breadcrumb>
+    <ngd-bread-crumb [primaryText]="'Vendas'"></ngd-bread-crumb>
+  </ng-template>
 
-        <ngd-generic-input
-          class="form__field form__field--full column-2 row-1"
-          [label]="'Quantidade'"
-          controlName="quantity"
-          [type]="'number'"
-          [placeholder]="'digite a quantidade de produtos'"
+  <ng-template #actionText>
+    <h2>Adicionar Venda</h2>
+  </ng-template>
+
+  <ng-template #formArea>
+    <form novalidate class="form" [formGroup]="salesFormGroup">
+      <div formArrayName="products">
+        <div
+          *ngFor="let item of products.controls; let pointIndex = index"
+          [formGroupName]="pointIndex"
+          fxLayout="row"
+          fxLayoutGap="20px"
         >
-        </ngd-generic-input>
+          <ngd-generic-select
+            (changeSelect)="selectedItem($event, item)"
+            [label]="'Selecione o produto'"
+            controlName="product"
+            [items]="productsList"
+            keyName="id"
+            valueName="name"
+            [minWidth]="'50%'"
+          ></ngd-generic-select>
 
-        <div class="form__icons column-3 row-1">
-          <button
-            (click)="addProduct()"
-            class="form__button form__button--icon"
-            type="button"
-            mat-mini-fab
+          <ngd-generic-input
+            [label]="'Quantidade'"
+            controlName="quantity"
+            [type]="'number'"
+            [placeholder]="'digite a quantidade de produtos'"
           >
-            <mat-icon class="mat-18">add</mat-icon>
-          </button>
-          <button
-            (click)="deleteProduct(pointIndex)"
-            class="form__button form__button--icon"
-            type="button"
-            mat-mini-fab
-            [disabled]="removeProductDisabled$$ | async"
+          </ngd-generic-input>
+
+          <div
+            [ngStyle]="{ height: '63px' }"
+            fxLayout
+            fxLayoutGap="10px"
+            fxLayoutAlign="center center"
           >
-            <mat-icon class="mat-18">remove</mat-icon>
-          </button>
+            <button
+              (click)="addProduct()"
+              class="form__button form__button--icon"
+              type="button"
+              mat-mini-fab
+            >
+              <mat-icon class="mat-18">add</mat-icon>
+            </button>
+            <button
+              (click)="deleteProduct(pointIndex)"
+              class="form__button form__button--icon"
+              type="button"
+              mat-mini-fab
+              [disabled]="removeProductDisabled$$ | async"
+            >
+              <mat-icon class="mat-18">remove</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <ngd-generic-select
-      class="form__field form__field--full column-2 row-1"
-      [label]="'Selecione a forma de pagamento'"
-      controlName="paymentForm"
-      [items]="paymentMethods"
-      keyName="id"
-      valueName="description"
-    ></ngd-generic-select>
+      <ngd-generic-select
+        [label]="'Selecione a forma de pagamento'"
+        controlName="paymentForm"
+        [items]="paymentMethods"
+        keyName="id"
+        valueName="description"
+        [width]="'50%'"
+      ></ngd-generic-select>
 
-    <div class="sales__buttons column-1 row-3">
-      <button
-        [disabled]="salesFormGroup.invalid"
-        (click)="save()"
-        type="submit"
-        mat-raised-button
-        class="form__button form__button--save"
-      >
-        Salvar
-      </button>
-      <button
-        type="reset"
-        mat-raised-button
-        class="form__button form__button--cancel"
-      >
-        Cancelar
-      </button>
-    </div>
-  </form>
-</div>
+      <div fxLayoutGap="10px">
+        <button
+          mat-raised-button
+          [disabled]="salesFormGroup.invalid"
+          (click)="save()"
+          class="salvar"
+        >
+          Salvar
+        </button>
+        <button mat-raised-button type="button" [routerLink]="['../', 'list']">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </ng-template>
+</ngd-abstract-template-create-edit>

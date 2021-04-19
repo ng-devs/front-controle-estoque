@@ -1,74 +1,61 @@
-<div class="produtos">
-  <ngd-bread-crumb
-    [primaryText]="'Cadastros'"
-    [secondaryText]="'Produtos'"
-  ></ngd-bread-crumb>
-  <h2>{{ isEditMode ? 'Editar Produto' : 'Adicionar Produto' }}</h2>
-  <div class="cadprodutos">
-    <form
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-      fxLayout="column"
-      fxLayoutGap="20px"
-    >
-      <section class="payment-method__fields" fxLayout="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-1 col-md-3 idprod">
-              <ngd-generic-input
-                controlName="id"
-                [hasLabel]="false"
-                type="number"
-                [placeholder]="'ID'"
-              >
-              </ngd-generic-input>
-            </div>
-            <div class="col-1 col-md-4 catprod">
-              <ngd-generic-select
-                class="form__field form__field--full column-2 row-1 catprod"
-                [label]="'Selecione a Categoria'"
-                controlName="category"
-                [items]="categoryList"
-                keyName="id"
-                valueName="name"
-              >
-              </ngd-generic-select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-1 col-md-9 nomeprod">
-              <ngd-generic-input
-                controlName="name"
-                type="text"
-                label="Nome"
-              ></ngd-generic-input>
-            </div>
-            <div class="col-2 col-md-4 qtdprod">
-              <ngd-generic-input
-                controlName="quantity"
-                type="number"
-                label="Quantidade"
-              ></ngd-generic-input>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3 col-md-4">
-              <ngd-generic-input
-                class=""
-                controlName="identidade"
-                type="number"
-              ></ngd-generic-input>
-            </div>
-            <div class="col-3 col-md-4 precoprod">
-              <ngd-generic-input
-                controlName="price"
-                type="number"
-                label="Preço R$"
-              ></ngd-generic-input>
-            </div>
-          </div>
-        </div>
-      </section>
+<ngd-abstract-template-create-edit>
+  <ng-template #breadcrumb>
+    <ngd-bread-crumb
+      [primaryText]="'Cadastros'"
+      [secondaryText]="'Produtos'"
+    ></ngd-bread-crumb>
+  </ng-template>
+
+  <ng-template #actionText>
+    <h2>{{ isEditMode ? 'Editar Produto' : 'Adicionar Produto' }}</h2>
+  </ng-template>
+
+  <ng-template #formArea>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" fxLayout="column">
+      <div fxLayout="row" fxLayoutGap="20px">
+        <ngd-generic-input
+          #inputRef
+          [width]="inputRef.defaultIdWidth"
+          controlName="id"
+          [hasLabel]="false"
+          type="number"
+          [placeholder]="'ID'"
+          gdRow="1"
+        >
+        </ngd-generic-input>
+
+        <ngd-generic-input
+          controlName="name"
+          type="text"
+          label="Nome"
+          gdRow="1"
+        ></ngd-generic-input>
+      </div>
+      <div fxLayout="row" fxLayoutGap="20px">
+        <ngd-generic-select
+          [label]="'Selecione a Categoria'"
+          controlName="category"
+          [items]="categoryList"
+          keyName="id"
+          valueName="name"
+          [minWidth]="'210px'"
+        >
+        </ngd-generic-select>
+
+        <ngd-generic-input
+          controlName="quantity"
+          type="number"
+          label="Quantidade"
+          [minWidth]="'120px'"
+        ></ngd-generic-input>
+
+        <ngd-generic-input
+          controlName="price"
+          type="number"
+          label="Preço"
+        ></ngd-generic-input>
+      </div>
+
       <div fxLayoutGap="10px">
         <button
           mat-raised-button
@@ -80,12 +67,12 @@
         </button>
         <button
           mat-raised-button
-          routerLink="/cadastros/produtos"
+          routerLink="/cadastros/produtos/list"
           class="cancelar"
         >
           Cancelar
         </button>
       </div>
     </form>
-  </div>
-</div>
+  </ng-template>
+</ngd-abstract-template-create-edit>

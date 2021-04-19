@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PAYMENT_METHOD, PRODUCTS } from '@app/mocks';
 import { BehaviorSubject } from 'rxjs';
 
@@ -24,7 +25,7 @@ export class SalesCreateEditComponent implements OnInit {
     return this.salesFormGroup.get('products') as FormArray;
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.initializeForm();
   }
 
