@@ -3,34 +3,7 @@
 @import 'mixins';
 @import 'functions';
 
-.categoria {
-  @include default-page-padding;
-}
-
-section {
-  width: 100%;
-}
-
-ngd-generic-input:first-of-type {
-  width: 100px;
-  margin-right: rem(20);
-}
-
-ngd-generic-input {
-  width: 100%;
-}
-
-h2 {
-  margin-top: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-
 button.salvar {
-  background-color: #2fb82f;
-  color: #ffffff;
+  background-color: $color-success;
+  color: $color-text-on-success;
 }

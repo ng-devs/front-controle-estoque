@@ -1,88 +1,24 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "functions";
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
 
-$icon-color: #212529;
-
-.sale {
-  @include default-page-padding;
-
-  &__title {
-    font-size: rem(30);
-  }
-
-  &__divider {
-    margin-top: rem(32);
-  }
-
-  .form {
-    margin-top: rem(60);
-
-    display: grid;
-    grid-template-columns: 1fr 1fr rem(90);
-    column-gap: 20px;
-
-    &__products {
-      grid-column: 1/-1;
-    }
-
-    &__product {
-      display: grid;
-      grid-template-columns: 1fr 1fr rem(90);
-      column-gap: 20px;
-    }
-
-    &__field {
-      width: 100%;
-    }
-
-    &__icons {
-      align-self: center;
-      padding-bottom: rem(21.5);
-    }
-
-    &__button {
-      &--save,
-      &--cancel {
-        font-size: rem(15);
-        border-radius: rem(4);
-        font-weight: bold;
-        @include size(95 36);
-        transition: background-color 0.2s, opacity 0.2s;
+.form {
+  &__button {
+    &--icon {
+      &:first-of-type {
+        margin-right: rem(10);
+        background-color: $color-primary;
       }
 
-      &--save {
-        background-color: $color-success;
-        margin-right: rem(8);
-        color: white;
-
-        &[disabled] {
-          opacity: 0.7;
-          background-color: $color-text-on-surface;
-        }
+      &:not([disabled]):not(:first-of-type) {
+        background-color: $color-primary;
       }
-
-      &--cancel {
-        border: 1px solid $color-secondary;
-        color: $color-secondary;
-      }
-
-      &--icon {
-        &:first-of-type {
-          margin-right: rem(10);
-          background-color: $color-primary;
-        }
-
-        &:not([disabled]):not(:first-of-type) {
-          background-color: $color-primary;
-        }
-      }
-    }
-
-    .sales__buttons {
-      margin-top: rem(20);
-      grid-row: 3;
     }
   }
+}
+
+button.salvar {
+  background-color: $color-success;
+  color: $color-text-on-success;
 }
