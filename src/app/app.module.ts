@@ -39,6 +39,7 @@ import {
   SalesCreateEditComponent,
   SalesListComponent,
 } from '@app/pages';
+import { HotToastModule } from '@ngneat/hot-toast';
 import { BreadCrumbComponent } from 'app/components/bread-crumb/bread-crumb.component';
 import { GenericInputComponent } from 'app/components/generic-input/generic-input.component';
 import { ProductsComponent } from 'app/pages/cadastros/products/products.component';
@@ -50,6 +51,7 @@ import {
 } from 'ngx-currency';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AbstractTemplateCreateEditComponent } from './components/abstract-template-create-edit/abstract-template-create-edit.component';
 import { AbstractTemplateCrudComponent } from './components/abstract-template-crud/abstract-template-crud.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { GenericBaseFormFieldComponent } from './components/generic-base-form-field/generic-base-form-field.component';
@@ -105,6 +107,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     GenericPipe,
     AlertComponent,
     AbstractTemplateCrudComponent,
+    AbstractTemplateCreateEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,6 +131,7 @@ export const customCurrencyMaskConfig: CurrencyMaskConfig = {
     MatDialogModule,
     MatNativeDateModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    HotToastModule.forRoot(),
   ],
 
   providers: [

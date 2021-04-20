@@ -1,0 +1,24 @@
+@import 'colors';
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+
+.container {
+  @include default-page-padding;
+
+  &__action-text {
+    margin-top: rem(20);
+  }
+
+  &__form {
+    margin-top: rem(20);
+  }
+}
+
+section {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 20px;
+}

@@ -4,7 +4,6 @@ import { GenericBaseFormFieldComponent } from 'app/components/generic-base-form-
 @Component({
   selector: 'ngd-generic-input',
   templateUrl: './generic-input.component.html',
-  styleUrls: ['./generic-input.component.scss'],
 })
 export class GenericInputComponent extends GenericBaseFormFieldComponent {
   @Input() type: string;

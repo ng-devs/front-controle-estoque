@@ -1,18 +1,26 @@
-<div class="categoria">
-  <ngd-bread-crumb
-    [primaryText]="'Cadastros'"
-    [secondaryText]="'Categoria'"
-  ></ngd-bread-crumb>
-  <h2>{{ isEditMode ? 'Editar Categoria' : 'Adicionar Categoria' }}</h2>
-  <div class="cadcategoria">
+<ngd-abstract-template-create-edit>
+  <ng-template #breadcrumb>
+    <ngd-bread-crumb
+      [primaryText]="'Cadastros'"
+      [secondaryText]="'Categoria'"
+    ></ngd-bread-crumb>
+  </ng-template>
+
+  <ng-template #actionText>
+    <h2>{{ isEditMode ? 'Editar Categoria' : 'Adicionar Categoria' }}</h2>
+  </ng-template>
+
+  <ng-template #formArea>
     <form
       [formGroup]="form"
       (ngSubmit)="onSubmit()"
       fxLayout="column"
       fxLayoutGap="20px"
     >
-      <section class="payment-method__fields" fxLayout="row">
+      <section fxLayout="row" fxLayoutGap="20px">
         <ngd-generic-input
+          #inputRef
+          [width]="inputRef.defaultIdWidth"
           controlName="id"
           [hasLabel]="false"
           type="number"
@@ -27,20 +35,16 @@
       <div fxLayoutGap="10px">
         <button
           mat-raised-button
-          (click)="saveCat(id)"
+          (click)="save()"
           class="salvar"
           [disabled]="form.invalid"
         >
           Salvar
         </button>
-        <button
-          mat-raised-button
-          routerLink="/cadastros/categoria"
-          class="cancelar"
-        >
+        <button mat-raised-button [routerLink]="['../', 'list']">
           Cancelar
         </button>
       </div>
     </form>
-  </div>
-</div>
+  </ng-template>
+</ngd-abstract-template-create-edit>
