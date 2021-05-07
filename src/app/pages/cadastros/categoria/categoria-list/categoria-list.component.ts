@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalComponent } from '@app/components';
 import { CATEGORY_MOCK } from '@app/mocks';
 import { ActionEvent, CategoriaListItem, TableColumns } from '@app/models';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,7 +19,7 @@ export class CategoriaListComponent implements OnDestroy {
   };
   private subscription = new Subscription();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toastService: HotToastService) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -50,6 +51,7 @@ export class CategoriaListComponent implements OnDestroy {
         if (!confirmed) {
           return;
         }
+        this.toastService.success('removido com sucesso!');
         this.dataSource = this.dataSource.filter(
           (category) => category !== this.selectedItem
         );

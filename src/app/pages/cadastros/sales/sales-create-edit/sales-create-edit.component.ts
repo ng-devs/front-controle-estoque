@@ -48,6 +48,7 @@ export class SalesCreateEditComponent implements OnInit {
 
     if (canRemove) {
       this.products.removeAt(index);
+      this.toastService.success('removido com sucesso!');
     }
     const canDisableButton = this.products.length === 1;
     this.removeProductDisabled$$.next(canDisableButton);
@@ -64,7 +65,6 @@ export class SalesCreateEditComponent implements OnInit {
       ...{ total: this.getTotalQuantity() },
     };
 
-    console.log(sale);
     this.toastService.success('Venda adicionada com sucesso!');
 
     this.salesFormGroup.reset();
