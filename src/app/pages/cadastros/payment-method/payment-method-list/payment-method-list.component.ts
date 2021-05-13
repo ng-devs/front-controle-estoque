@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ModalComponent } from '@app/components';
 import { PAYMENT_METHOD } from '@app/mocks';
 import { ActionEvent, PaymentMethod, TableColumns } from '@app/models';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -19,7 +20,11 @@ export class PaymentMethodListComponent implements OnDestroy {
 
   private subscription = new Subscription();
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private toastService: HotToastService
+  ) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -59,6 +64,7 @@ export class PaymentMethodListComponent implements OnDestroy {
         if (!confirmed) {
           return;
         }
+        this.toastService.success('removido com sucesso!');
         this.dataSource = this.dataSource.filter(
           (paymentMethod) => paymentMethod !== this.selectedItem
         );

@@ -8,6 +8,7 @@ import {
   ProductSoldListItem,
   TableColumns,
 } from '@app/models';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -35,7 +36,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
   private subscription = new Subscription();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toastService: HotToastService) {}
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -73,6 +74,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
           return;
         }
 
+        this.toastService.success('removido com sucesso!');
         this.dataSource = this.dataSource.filter(
           (category) => category !== this.selectedItem
         );
