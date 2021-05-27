@@ -7,7 +7,6 @@ table {
   border-top: 1px solid #dee2e6;
   margin-top: rem(22);
   width: 100%;
-  max-width: $global-max-width;
 
   ::ng-deep .mat-header-row th {
     border-bottom: 2px solid #dee2e6 !important;
@@ -25,4 +24,9 @@ table {
 
 .menu-icon {
   color: black;
+}
+
+.mat-column-actions {
+  width: 32px;
+  text-align: right;
 }
